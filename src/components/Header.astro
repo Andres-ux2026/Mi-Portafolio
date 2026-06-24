@@ -1,0 +1,28 @@
+---
+import ThemeToggle from './ThemeToggle.astro'
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+  <nav class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="#" class="text-lg font-bold tracking-tight hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+      <span class="text-emerald-600 dark:text-emerald-400">&lt;</span>
+      AM
+      <span class="text-emerald-600 dark:text-emerald-400">/&gt;</span>
+    </a>
+
+    <div class="flex items-center gap-6">
+      <div class="hidden sm:flex items-center gap-6 text-sm font-medium">
+        <a href="#proyectos" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Proyectos</a>
+        <a href="#contacto" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contacto</a>
+        <a
+          href="/Mi-Portafolio/cv.pdf"
+          download
+          class="px-4 py-2 rounded-lg bg-emerald-600 text-white text-sm font-medium hover:bg-emerald-700 transition-colors"
+        >
+          Descargar CV
+        </a>
+      </div>
+      <ThemeToggle />
+    </div>
+  </nav>
+</header>
