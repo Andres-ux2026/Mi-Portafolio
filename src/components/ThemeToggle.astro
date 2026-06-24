@@ -11,15 +11,19 @@
   </svg>
 </button>
 
-<script>
-  const button = document.getElementById('theme-toggle')
-  button.addEventListener('click', () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark')
-      localStorage.theme = 'light'
-    } else {
-      document.documentElement.classList.add('dark')
-      localStorage.theme = 'dark'
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('theme-toggle')
+    if (button) {
+      button.addEventListener('click', () => {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark')
+          localStorage.theme = 'light'
+        } else {
+          document.documentElement.classList.add('dark')
+          localStorage.theme = 'dark'
+        }
+      })
     }
   })
 </script>
