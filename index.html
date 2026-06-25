@@ -99,9 +99,12 @@
         <p class="text-emerald-600 dark:text-emerald-400 font-medium mb-4">Hola, soy</p>
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">Andres Moraga Triviño</h1>
         <div class="flex justify-center mb-4">
-          <img src="images/profile.webp" alt="Andres Moraga Triviño"
-            class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-emerald-600/30 dark:border-emerald-400/30 shadow-lg"
-            onerror="this.style.display='none'" />
+          <picture>
+            <source srcset="images/profile.webp" type="image/webp" />
+            <img src="images/profile.png" alt="Andres Moraga Triviño"
+              class="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-emerald-600/30 dark:border-emerald-400/30 shadow-lg"
+              onerror="this.style.display='none'" />
+          </picture>
         </div>
         <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 font-medium mb-3">Full Stack Developer</p>
         <p class="text-lg text-gray-500 dark:text-gray-500 mb-8 max-w-xl mx-auto leading-relaxed">Creo aplicaciones web creando experiencias rápidas, inclusivas y orientadas al usuario</p>
