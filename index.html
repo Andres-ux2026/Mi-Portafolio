@@ -19,28 +19,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: {
             sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
           },
-          colors: {
-            dark: {
-              bg: '#1E2124',
-              surface: '#2E3238',
-              text: '#FDFDFD',
-              accent: '#FFD700',
-              lavender: '#A5B4FC',
-            },
-          },
         },
       },
-    }
-  </script>
-  <script>
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
     }
   </script>
 
@@ -53,8 +38,7 @@
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-    ::selection { background-color: rgba(5, 150, 105, 0.2); color: #064e3b; }
-    .dark ::selection { background-color: rgba(255, 215, 0, 0.2); color: #FDFDFD; }
+    ::selection { background-color: rgba(255, 215, 0, 0.2); color: #FDFDFD; }
     @keyframes fade-in-up {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -62,17 +46,17 @@
     .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-white text-gray-900 dark:bg-[#1E2124] dark:text-[#FDFDFD] antialiased">
+<body class="min-h-screen flex flex-col bg-[#1E2124] text-[#FDFDFD] antialiased">
 
   <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-[#1E2124]/80 backdrop-blur-md border-b border-gray-200 dark:border-[#2E3238]">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#1E2124]/80 backdrop-blur-md border-b border-[#2E3238]">
     <nav class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="#" class="group">
         <svg width="38" height="38" viewBox="0 0 38 38" class="shrink-0">
           <defs>
             <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" class="stop-color-emerald-600 dark:stop-color-[#FFD700]" />
-              <stop offset="100%" class="stop-color-teal-600 dark:stop-color-[#FFD700]" />
+              <stop offset="0%" stop-color="#FFD700" />
+              <stop offset="100%" stop-color="#FFD700" />
             </linearGradient>
           </defs>
           <rect width="38" height="38" rx="10" fill="url(#logo-grad)" class="transition-all group-hover:scale-105 origin-center" />
@@ -82,18 +66,10 @@
 
       <div class="flex items-center gap-6">
         <div class="hidden sm:flex items-center gap-6 text-sm font-medium">
-          <a href="#proyectos" class="hover:text-emerald-600 dark:hover:text-[#FFD700] transition-colors">Proyectos</a>
-          <a href="#contacto" class="hover:text-emerald-600 dark:hover:text-[#FFD700] transition-colors">Contacto</a>
-          <a href="cv.pdf" download class="px-4 py-2 rounded-lg bg-emerald-600 dark:bg-[#FFD700] text-white dark:text-[#1E2124] text-sm font-medium hover:bg-emerald-700 dark:hover:bg-[#D4A800] transition-colors">Descargar CV</a>
+          <a href="#proyectos" class="hover:text-[#FFD700] transition-colors">Proyectos</a>
+          <a href="#contacto" class="hover:text-[#FFD700] transition-colors">Contacto</a>
+          <a href="cv.pdf" download class="px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-medium hover:bg-[#D4A800] transition-colors">Descargar CV</a>
         </div>
-        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-[#2E3238] transition-colors" aria-label="Cambiar tema">
-          <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-          </svg>
-          <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />
-          </svg>
-        </button>
       </div>
     </nav>
   </header>
@@ -102,21 +78,21 @@
     <!-- Hero -->
     <section class="min-h-screen flex items-center justify-center px-4 pt-16">
       <div class="max-w-3xl mx-auto text-center animate-fade-in-up">
-        <p class="text-emerald-600 dark:text-[#FFD700] font-medium mb-4">Hola, soy</p>
+        <p class="text-[#FFD700] font-medium mb-4">Hola, soy</p>
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">Andres Moraga Triviño</h1>
         <div class="flex justify-center mb-4">
           <picture>
             <source srcset="images/profile.webp" type="image/webp" />
             <img src="images/profile.png" alt="Andres Moraga Triviño"
-              class="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover border-4 border-emerald-600/30 dark:border-[#FFD700]/30 shadow-lg"
+              class="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover border-4 border-[#FFD700]/30 shadow-lg"
               onerror="this.style.display='none'" />
           </picture>
         </div>
-        <p class="text-xl sm:text-2xl text-gray-600 dark:text-[#FDFDFD] font-medium mb-3">Full Stack Developer</p>
-        <p class="text-lg text-gray-500 dark:text-[#FDFDFD]/70 mb-8 max-w-xl mx-auto leading-relaxed">Creo aplicaciones web creando experiencias rápidas, inclusivas y orientadas al usuario</p>
+        <p class="text-xl sm:text-2xl text-[#FDFDFD] font-medium mb-3">Full Stack Developer</p>
+        <p class="text-lg text-[#FDFDFD]/70 mb-8 max-w-xl mx-auto leading-relaxed">Creo aplicaciones web creando experiencias rápidas, inclusivas y orientadas al usuario</p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#proyectos" class="px-6 py-3 rounded-lg bg-emerald-600 dark:bg-[#FFD700] text-white dark:text-[#1E2124] font-semibold hover:bg-emerald-700 dark:hover:bg-[#D4A800] transition-colors shadow-lg shadow-emerald-600/25 dark:shadow-[#FFD700]/25">Ver proyectos</a>
-          <a href="#contacto" class="px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-[#2E3238] font-semibold hover:border-emerald-600 dark:hover:border-[#FFD700] hover:text-emerald-600 dark:hover:text-[#FFD700] transition-colors">Contáctame</a>
+          <a href="#proyectos" class="px-6 py-3 rounded-lg bg-[#FFD700] text-[#1E2124] font-semibold hover:bg-[#D4A800] transition-colors shadow-lg shadow-[#FFD700]/25">Ver proyectos</a>
+          <a href="#contacto" class="px-6 py-3 rounded-lg border-2 border-[#2E3238] font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Contáctame</a>
         </div>
       </div>
     </section>
@@ -125,114 +101,114 @@
     <section id="sobre-mi" class="py-20 px-4">
       <div class="max-w-3xl mx-auto">
         <h2 class="text-3xl font-bold mb-8 text-center">
-          <span class="text-emerald-600 dark:text-[#FFD700]">#</span> Sobre mí
+          <span class="text-[#FFD700]">#</span> Sobre mí
         </h2>
-        <div class="text-gray-600 dark:text-[#FDFDFD]/80 space-y-4 mb-10 text-center leading-relaxed">
+        <div class="text-[#FDFDFD]/80 space-y-4 mb-10 text-center leading-relaxed">
           <p>Ingeniero en Informática y Contador con experiencia previa en administración y finanzas. Tras años optimizando procesos empresariales, hoy me he reencantado con el desarrollo web, traduciendo esa visión de negocio en la creación de aplicaciones funcionales y eficientes.
 
 Me especializo en construir soluciones web ordenadas, alineadas con los objetivos operativos y financieros de cada proyecto. Busco integrarme a un equipo tecnológico donde pueda aportar mi madurez laboral, mi capacidad de organización y seguir creciendo como desarrollador.</p>
         </div>
         <h3 class="text-xl font-semibold mb-6 text-center">Tecnologías</h3>
         <div class="flex flex-wrap gap-3 justify-center">
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>🐍</span><span class="dark:text-[#A5B4FC]">Python</span></span>
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>🎯</span><span class="dark:text-[#A5B4FC]">Django</span></span>
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>🐙</span><span class="dark:text-[#A5B4FC]">GitHub</span></span>
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>⚡</span><span class="dark:text-[#A5B4FC]">JavaScript</span></span>
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>📘</span><span class="dark:text-[#A5B4FC]">TypeScript</span></span>
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>🐳</span><span class="dark:text-[#A5B4FC]">Docker</span></span>
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>🔧</span><span class="dark:text-[#A5B4FC]">OpenCode</span></span>
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>📝</span><span class="dark:text-[#A5B4FC]">Git</span></span>
-          <span class="px-4 py-2 rounded-full bg-gray-100 dark:bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-gray-200 dark:border-[#A5B4FC]/30"><span>🗄️</span><span class="dark:text-[#A5B4FC]">PostgreSQL</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🐍</span><span class="text-[#A5B4FC]">Python</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🎯</span><span class="text-[#A5B4FC]">Django</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🐙</span><span class="text-[#A5B4FC]">GitHub</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>⚡</span><span class="text-[#A5B4FC]">JavaScript</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>📘</span><span class="text-[#A5B4FC]">TypeScript</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🐳</span><span class="text-[#A5B4FC]">Docker</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🔧</span><span class="text-[#A5B4FC]">OpenCode</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>📝</span><span class="text-[#A5B4FC]">Git</span></span>
+          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🗄️</span><span class="text-[#A5B4FC]">PostgreSQL</span></span>
         </div>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="proyectos" class="py-20 px-4 bg-gray-50 dark:bg-[#1E2124]">
+    <section id="proyectos" class="py-20 px-4 bg-[#1E2124]">
       <div class="max-w-5xl mx-auto">
         <h2 class="text-3xl font-bold mb-4 text-center">
-          <span class="text-emerald-600 dark:text-[#FFD700]">#</span> Proyectos
+          <span class="text-[#FFD700]">#</span> Proyectos
         </h2>
-        <p class="text-gray-500 dark:text-[#FDFDFD]/70 text-center mb-10 max-w-lg mx-auto">Proyectos que muestran mi experiencia en distintas tecnologías y enfoques.</p>
+        <p class="text-[#FDFDFD]/70 text-center mb-10 max-w-lg mx-auto">Proyectos que muestran mi experiencia en distintas tecnologías y enfoques.</p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
           <!-- EcoTrack Dash -->
-          <article class="group rounded-xl border border-gray-200 dark:border-[#2E3238] bg-white dark:bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-emerald-600/5 dark:hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-[#2E3238] dark:to-[#1E2124] flex items-center justify-center">
-              <div class="text-4xl font-bold text-emerald-300 dark:text-[#FFD700]/40 select-none">{'{ }'}</div>
+          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+            <div class="aspect-video bg-gradient-to-br from-[#2E3238] to-[#1E2124] flex items-center justify-center">
+              <div class="text-4xl font-bold text-[#FFD700]/40 select-none">{'{ }'}</div>
             </div>
             <div class="p-5 flex flex-col flex-1">
               <h3 class="text-lg font-bold mb-2">EcoTrack Dash</h3>
-              <p class="text-sm text-gray-600 dark:text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Dashboard interactivo para medir la huella de carbono empresarial en tiempo real con gráficos dinámicos.</p>
+              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Dashboard interactivo para medir la huella de carbono empresarial en tiempo real con gráficos dinámicos.</p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">React</span>
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">Tailwind CSS</span>
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">Chart.js</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">React</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Tailwind CSS</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Chart.js</span>
               </div>
               <div class="flex gap-3">
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-gray-300 dark:border-[#2E3238] text-sm font-semibold hover:border-emerald-600 dark:hover:border-[#FFD700] hover:text-emerald-600 dark:hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-emerald-600 dark:bg-[#FFD700] text-white dark:text-[#1E2124] text-sm font-semibold hover:bg-emerald-700 dark:hover:bg-[#D4A800] transition-colors">Demo</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
               </div>
             </div>
           </article>
 
           <!-- CryptoSprout -->
-          <article class="group rounded-xl border border-gray-200 dark:border-[#2E3238] bg-white dark:bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-emerald-600/5 dark:hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-[#2E3238] dark:to-[#1E2124] flex items-center justify-center">
-              <div class="text-4xl font-bold text-emerald-300 dark:text-[#FFD700]/40 select-none">{'{ }'}</div>
+          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+            <div class="aspect-video bg-gradient-to-br from-[#2E3238] to-[#1E2124] flex items-center justify-center">
+              <div class="text-4xl font-bold text-[#FFD700]/40 select-none">{'{ }'}</div>
             </div>
             <div class="p-5 flex flex-col flex-1">
               <h3 class="text-lg font-bold mb-2">CryptoSprout</h3>
-              <p class="text-sm text-gray-600 dark:text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Simulador educativo de billetera virtual para la gestión de microinversiones en criptoactivos orientada a jóvenes.</p>
+              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Simulador educativo de billetera virtual para la gestión de microinversiones en criptoactivos orientada a jóvenes.</p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">TypeScript</span>
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">Next.js</span>
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">Sass</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">TypeScript</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Next.js</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Sass</span>
               </div>
               <div class="flex gap-3">
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-gray-300 dark:border-[#2E3238] text-sm font-semibold hover:border-emerald-600 dark:hover:border-[#FFD700] hover:text-emerald-600 dark:hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-emerald-600 dark:bg-[#FFD700] text-white dark:text-[#1E2124] text-sm font-semibold hover:bg-emerald-700 dark:hover:bg-[#D4A800] transition-colors">Demo</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
               </div>
             </div>
           </article>
 
           <!-- ChefReserve API -->
-          <article class="group rounded-xl border border-gray-200 dark:border-[#2E3238] bg-white dark:bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-emerald-600/5 dark:hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-[#2E3238] dark:to-[#1E2124] flex items-center justify-center">
-              <div class="text-4xl font-bold text-emerald-300 dark:text-[#FFD700]/40 select-none">{'{ }'}</div>
+          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+            <div class="aspect-video bg-gradient-to-br from-[#2E3238] to-[#1E2124] flex items-center justify-center">
+              <div class="text-4xl font-bold text-[#FFD700]/40 select-none">{'{ }'}</div>
             </div>
             <div class="p-5 flex flex-col flex-1">
               <h3 class="text-lg font-bold mb-2">ChefReserve API</h3>
-              <p class="text-sm text-gray-600 dark:text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">API REST para la gestión de reservas de restaurantes con alta concurrencia y sistema de notificaciones automáticas.</p>
+              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">API REST para la gestión de reservas de restaurantes con alta concurrencia y sistema de notificaciones automáticas.</p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">Node.js</span>
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">Express</span>
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">MongoDB</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Node.js</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Express</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">MongoDB</span>
               </div>
               <div class="flex gap-3">
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-gray-300 dark:border-[#2E3238] text-sm font-semibold hover:border-emerald-600 dark:hover:border-[#FFD700] hover:text-emerald-600 dark:hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-emerald-600 dark:bg-[#FFD700] text-white dark:text-[#1E2124] text-sm font-semibold hover:bg-emerald-700 dark:hover:bg-[#D4A800] transition-colors">Demo</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
               </div>
             </div>
           </article>
 
           <!-- AuraFit App -->
-          <article class="group rounded-xl border border-gray-200 dark:border-[#2E3238] bg-white dark:bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-emerald-600/5 dark:hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-[#2E3238] dark:to-[#1E2124] flex items-center justify-center">
-              <div class="text-4xl font-bold text-emerald-300 dark:text-[#FFD700]/40 select-none">{'{ }'}</div>
+          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
+            <div class="aspect-video bg-gradient-to-br from-[#2E3238] to-[#1E2124] flex items-center justify-center">
+              <div class="text-4xl font-bold text-[#FFD700]/40 select-none">{'{ }'}</div>
             </div>
             <div class="p-5 flex flex-col flex-1">
               <h3 class="text-lg font-bold mb-2">AuraFit App</h3>
-              <p class="text-sm text-gray-600 dark:text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Landing page minimalista para una aplicación móvil de bienestar mental, meditación guiada y seguimiento del sueño.</p>
+              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Landing page minimalista para una aplicación móvil de bienestar mental, meditación guiada y seguimiento del sueño.</p>
               <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">Astro</span>
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">HTML5</span>
-                <span class="px-2.5 py-1 rounded-md bg-gray-100 dark:bg-[#1E2124] text-xs font-medium text-gray-700 dark:text-[#A5B4FC] border border-gray-200 dark:border-[#A5B4FC]/20">CSS Grid</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Astro</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">HTML5</span>
+                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">CSS Grid</span>
               </div>
               <div class="flex gap-3">
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-gray-300 dark:border-[#2E3238] text-sm font-semibold hover:border-emerald-600 dark:hover:border-[#FFD700] hover:text-emerald-600 dark:hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-emerald-600 dark:bg-[#FFD700] text-white dark:text-[#1E2124] text-sm font-semibold hover:bg-emerald-700 dark:hover:bg-[#D4A800] transition-colors">Demo</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
+                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
               </div>
             </div>
           </article>
@@ -245,50 +221,50 @@ Me especializo en construir soluciones web ordenadas, alineadas con los objetivo
     <section id="contacto" class="py-20 px-4">
       <div class="max-w-3xl mx-auto text-center">
         <h2 class="text-3xl font-bold mb-4">
-          <span class="text-emerald-600 dark:text-[#FFD700]">#</span> Contacto
+          <span class="text-[#FFD700]">#</span> Contacto
         </h2>
-        <p class="text-gray-500 dark:text-[#FDFDFD]/70 mb-10 max-w-md mx-auto">¿Tienes un proyecto en mente o quieres conversar? Escríbeme:</p>
+        <p class="text-[#FDFDFD]/70 mb-10 max-w-md mx-auto">¿Tienes un proyecto en mente o quieres conversar? Escríbeme:</p>
 
         <form id="contact-form" class="max-w-lg mx-auto text-left mb-12">
           <div class="mb-4">
             <label for="name" class="block text-sm font-medium mb-1">Nombre</label>
             <input type="text" id="name" name="name" required
-              class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-[#2E3238] bg-white dark:bg-[#2E3238] focus:ring-2 focus:ring-emerald-600 dark:focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors dark:text-[#FDFDFD]" />
+              class="w-full px-4 py-2.5 rounded-lg border border-[#2E3238] bg-[#2E3238] focus:ring-2 focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors text-[#FDFDFD]" />
           </div>
           <div class="mb-4">
             <label for="email" class="block text-sm font-medium mb-1">Email</label>
             <input type="email" id="email" name="email" required
-              class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-[#2E3238] bg-white dark:bg-[#2E3238] focus:ring-2 focus:ring-emerald-600 dark:focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors dark:text-[#FDFDFD]" />
+              class="w-full px-4 py-2.5 rounded-lg border border-[#2E3238] bg-[#2E3238] focus:ring-2 focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors text-[#FDFDFD]" />
           </div>
           <div class="mb-4">
             <label for="subject" class="block text-sm font-medium mb-1">Asunto</label>
             <input type="text" id="subject" name="subject" required
-              class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-[#2E3238] bg-white dark:bg-[#2E3238] focus:ring-2 focus:ring-emerald-600 dark:focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors dark:text-[#FDFDFD]" />
+              class="w-full px-4 py-2.5 rounded-lg border border-[#2E3238] bg-[#2E3238] focus:ring-2 focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors text-[#FDFDFD]" />
           </div>
           <div class="mb-4">
             <label for="message" class="block text-sm font-medium mb-1">Mensaje</label>
             <textarea id="message" name="message" rows="5" required
-              class="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-[#2E3238] bg-white dark:bg-[#2E3238] focus:ring-2 focus:ring-emerald-600 dark:focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors resize-y dark:text-[#FDFDFD]"></textarea>
+              class="w-full px-4 py-2.5 rounded-lg border border-[#2E3238] bg-[#2E3238] focus:ring-2 focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors resize-y text-[#FDFDFD]"></textarea>
           </div>
           <button type="submit"
-            class="w-full px-6 py-3 rounded-lg bg-emerald-600 dark:bg-[#FFD700] text-white dark:text-[#1E2124] font-semibold hover:bg-emerald-700 dark:hover:bg-[#D4A800] transition-colors shadow-lg shadow-emerald-600/25 dark:shadow-[#FFD700]/25 disabled:opacity-50 disabled:cursor-not-allowed"
+            class="w-full px-6 py-3 rounded-lg bg-[#FFD700] text-[#1E2124] font-semibold hover:bg-[#D4A800] transition-colors shadow-lg shadow-[#FFD700]/25 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             Enviar mensaje
           </button>
           <p id="form-status" class="mt-4 text-sm font-medium hidden"></p>
         </form>
 
-        <p class="text-gray-500 dark:text-[#FDFDFD]/70 mb-8">O encuéntrame en:</p>
+        <p class="text-[#FDFDFD]/70 mb-8">O encuéntrame en:</p>
         <div class="flex justify-center gap-6">
-          <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-gray-200 dark:border-[#2E3238] hover:border-emerald-600 dark:hover:border-[#FFD700] hover:text-emerald-600 dark:hover:text-[#FFD700] transition-all font-medium">
+          <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-[#2E3238] hover:border-[#FFD700] hover:text-[#FFD700] transition-all font-medium">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
-          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-gray-200 dark:border-[#2E3238] hover:border-emerald-600 dark:hover:border-[#FFD700] hover:text-emerald-600 dark:hover:text-[#FFD700] transition-all font-medium">
+          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-[#2E3238] hover:border-[#FFD700] hover:text-[#FFD700] transition-all font-medium">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             GitHub
           </a>
-          <a href="mailto:moraga_2006@hotmail.com" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-gray-200 dark:border-[#2E3238] hover:border-emerald-600 dark:hover:border-[#FFD700] hover:text-emerald-600 dark:hover:text-[#FFD700] transition-all font-medium">
+          <a href="mailto:moraga_2006@hotmail.com" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-[#2E3238] hover:border-[#FFD700] hover:text-[#FFD700] transition-all font-medium">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             Email
           </a>
@@ -298,29 +274,11 @@ Me especializo en construir soluciones web ordenadas, alineadas con los objetivo
   </main>
 
   <!-- Footer -->
-  <footer class="py-8 px-4 border-t border-gray-200 dark:border-[#2E3238]">
-    <div class="max-w-5xl mx-auto text-center text-sm text-gray-500 dark:text-[#FDFDFD]/50">
+  <footer class="py-8 px-4 border-t border-[#2E3238]">
+    <div class="max-w-5xl mx-auto text-center text-sm text-[#FDFDFD]/50">
       <p>&copy; 2026 Andres Moraga Triviño. Todos los derechos reservados.</p>
     </div>
   </footer>
-
-  <!-- Theme Toggle Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const button = document.getElementById('theme-toggle')
-      if (button) {
-        button.addEventListener('click', () => {
-          if (document.documentElement.classList.contains('dark')) {
-            document.documentElement.classList.remove('dark')
-            localStorage.theme = 'light'
-          } else {
-            document.documentElement.classList.add('dark')
-            localStorage.theme = 'dark'
-          }
-        })
-      }
-    })
-  </script>
 
   <!-- EmailJS -->
   <script>
@@ -343,12 +301,12 @@ Me especializo en construir soluciones web ordenadas, alineadas con los objetivo
       })
         .then(() => {
           status.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.'
-          status.className = 'mt-4 text-sm font-medium text-emerald-600 dark:text-[#FFD700]'
+          status.className = 'mt-4 text-sm font-medium text-[#FFD700]'
           this.reset()
         })
         .catch(() => {
           status.textContent = 'Hubo un error al enviar el mensaje. Intenta de nuevo.'
-          status.className = 'mt-4 text-sm font-medium text-red-600 dark:text-red-400'
+          status.className = 'mt-4 text-sm font-medium text-red-400'
         })
         .finally(() => {
           btn.disabled = false
