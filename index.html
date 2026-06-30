@@ -427,14 +427,13 @@
       flex-direction: row;
     }
     .wrapper.spotlight .image {
-      border-radius: 100%;
+      border-radius: 5px;
       margin: 0 3em 2em 0;
       width: 22em;
-      height: 22em;
       overflow: hidden;
       flex-shrink: 0;
     }
-    .wrapper.spotlight .image img { border-radius: 100%; width: 100%; height: 100%; object-fit: cover; }
+    .wrapper.spotlight .image img { border-radius: 5px; width: 100%; display: block; }
     .wrapper.spotlight .content { width: 100%; flex: 2; }
     .wrapper.spotlight:nth-child(2n - 1) .inner {
       flex-direction: row-reverse;
@@ -447,19 +446,19 @@
     @media screen and (max-width: 980px) {
       .wrapper { margin: 4.75em 0; }
       .wrapper .inner { padding: 3em 3em 1em 3em; width: 100%; }
-      .wrapper.spotlight .image { margin: 0 2em 2em 0; width: 32em; height: 32em; }
+      .wrapper.spotlight .image { margin: 0 2em 2em 0; width: 32em; }
       .wrapper.spotlight:nth-child(2n - 1) .image { margin: 0 0 2em 2em; }
     }
     @media screen and (max-width: 736px) {
       .wrapper { margin: 2.5em 0; }
       .wrapper .inner { padding: 2em 2em 0.1em 2em; }
       .wrapper.spotlight .inner { align-items: flex-start; }
-      .wrapper.spotlight .image { width: 19em; height: 19em; margin: 0 1.75em 2em 0; }
+      .wrapper.spotlight .image { width: 19em; margin: 0 1.75em 2em 0; }
       .wrapper.spotlight:nth-child(2n - 1) .image { margin: 0 0 2em 1.75em; }
     }
     @media screen and (max-width: 480px) {
       .wrapper.spotlight .inner { display: block; }
-      .wrapper.spotlight .image { margin: 0 0 1em 0 !important; max-width: 85%; width: 12em; height: 12em; }
+      .wrapper.spotlight .image { margin: 0 0 1em 0 !important; max-width: 85%; width: 12em; }
     }
 
     /* Footer */
