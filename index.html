@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -22,7 +22,7 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            halcyon: ['Yanone Kaffeesatz', 'sans-serif'],
           },
         },
       },
@@ -35,10 +35,225 @@
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      background: #D4D9DD;
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+      color: #474f51;
+      font-family: 'Inter', system-ui, sans-serif;
+      line-height: 1.85em;
     }
-    ::selection { background-color: rgba(255, 215, 0, 0.2); color: #FDFDFD; }
+    ::selection { background-color: rgba(237, 57, 27, 0.2); color: #fff; }
+
+    /* Header */
+    #header {
+      background: #3B4346;
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 6px);
+      border-bottom: solid 1px #272d30;
+      box-shadow: inset 0px -1px 0px 0px #51575a;
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
+    }
+    #header .logo {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 2.75em;
+      font-weight: 200;
+    }
+    #header nav a {
+      color: #c6c8c8;
+      text-decoration: none;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.4em;
+      font-weight: 200;
+      transition: color 0.2s;
+    }
+    #header nav a:hover {
+      color: #f6f8f8;
+    }
+
+    /* Banner */
+    #banner {
+      background: #3B4346;
+      background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 6px);
+      border-top: solid 1px #222628;
+      box-shadow: inset 0px 1px 0px 0px #3e484a;
+      color: #fff;
+    }
+    #banner p {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 2em;
+      font-weight: 200;
+      line-height: 1.25em;
+    }
+
+    /* Bordered image */
+    .bordered-feature-image {
+      display: block;
+      background: #fff;
+      padding: 10px;
+      box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
+    }
+    .bordered-feature-image img {
+      display: block;
+      width: 100%;
+    }
+
+    /* Buttons */
+    .button-large {
+      display: inline-block;
+      background: linear-gradient(to bottom, #ed391b, #ce1a00);
+      background-color: #ed391b;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.75em;
+      height: 2em;
+      line-height: 2.125em;
+      font-weight: 300;
+      padding: 0 45px;
+      border-radius: 10px;
+      box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
+      transition: background 0.2s;
+    }
+    .button-large:hover {
+      background: linear-gradient(to bottom, #fd492b, #de2a10);
+      background-color: #fd492b;
+    }
+    .button-large:active {
+      background: linear-gradient(to bottom, #ce1a00, #ed391b);
+      background-color: #ce1a00;
+    }
+
+    .button {
+      display: inline-block;
+      background: linear-gradient(to bottom, #ed391b, #ce1a00);
+      background-color: #ed391b;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.25em;
+      height: 2.5em;
+      line-height: 2.5em;
+      font-weight: 300;
+      padding: 0 25px;
+      border-radius: 8px;
+      box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 2px 2px 2px 1px rgba(0, 0, 0, 0.15);
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
+      transition: background 0.2s;
+    }
+    .button:hover {
+      background: linear-gradient(to bottom, #fd492b, #de2a10);
+      background-color: #fd492b;
+    }
+    .button:active {
+      background: linear-gradient(to bottom, #ce1a00, #ed391b);
+      background-color: #ce1a00;
+    }
+
+    /* Features */
+    #features {
+      background: #353D40;
+      background-image: repeating-linear-gradient(135deg, transparent, transparent 4px, rgba(0,0,0,0.06) 4px, rgba(0,0,0,0.06) 8px);
+      border-bottom: solid 1px #272e31;
+      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
+      color: #a0a8ab;
+    }
+    #features h2 {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.8em;
+      color: #fff;
+    }
+    #features h3 {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.25em;
+      color: #fff;
+    }
+    #features a { color: #e0e8eb; }
+    #features strong { color: #fff; }
+    #features .skill-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      color: #e0e8eb;
+      padding: 0.3em 1em;
+      border-radius: 4px;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.15em;
+      border: solid 1px rgba(255,255,255,0.15);
+    }
+
+    /* Content */
+    #content {
+      background: #f7f7f7;
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,0,0,0.02) 20px, rgba(0,0,0,0.02) 21px);
+      border-top: solid 1px #fff;
+    }
+    #content h2 {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.8em;
+      color: #373f42;
+    }
+    #content h3 {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.25em;
+      color: #96a9b5;
+    }
+    #content a { color: #ED391B; }
+    #content .card {
+      background: #fff;
+      padding: 30px;
+      box-shadow: 2px 2px 2px 1px rgba(128, 128, 128, 0.1);
+      height: 100%;
+    }
+    #content .card h3 {
+      color: #373f42;
+      font-size: 1.4em;
+      margin: 0 0 0.25em 0;
+    }
+    #content .tag {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #474f51;
+      padding: 0.2em 0.8em;
+      border-radius: 4px;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.1em;
+    }
+
+    /* Footer */
+    #footer {
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
+      color: #546b76;
+    }
+    #footer h2 {
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.25em;
+      color: #212f35;
+    }
+    #footer a { color: #546b76; }
+
+    /* Form */
+    .halcyon-input {
+      background: #fff;
+      border: solid 1px #d0d4d6;
+      padding: 0.6em 1em;
+      border-radius: 6px;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      font-size: 1.15em;
+      color: #474f51;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    .halcyon-input:focus {
+      border-color: #ED391B;
+      outline: none;
+      box-shadow: 0 0 4px rgba(237, 57, 27, 0.3);
+    }
+    .halcyon-input::placeholder {
+      color: #a0a8ab;
+    }
+
+    /* Animations */
     @keyframes fade-in-up {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -46,257 +261,245 @@
     .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col bg-[#1E2124] text-[#FDFDFD] antialiased">
+<body>
 
   <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[#1E2124]/80 backdrop-blur-md border-b border-[#2E3238]">
-    <nav class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <a href="#" class="group">
-        <svg width="38" height="38" viewBox="0 0 38 38" class="shrink-0">
-          <defs>
-            <linearGradient id="logo-grad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#FFD700" />
-              <stop offset="100%" stop-color="#FFD700" />
-            </linearGradient>
-          </defs>
-          <rect width="38" height="38" rx="10" fill="url(#logo-grad)" class="transition-all group-hover:scale-105 origin-center" />
-          <text x="19" y="22" fill="white" font-family="system-ui" font-weight="800" font-size="16" text-anchor="middle">AM</text>
-        </svg>
-      </a>
-
-      <div class="flex items-center gap-6">
-        <div class="hidden sm:flex items-center gap-6 text-sm font-medium">
-          <a href="#proyectos" class="hover:text-[#FFD700] transition-colors">Proyectos</a>
-          <a href="#contacto" class="hover:text-[#FFD700] transition-colors">Contacto</a>
-          <a href="cv.pdf" download class="px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-medium hover:bg-[#D4A800] transition-colors">Descargar CV</a>
-        </div>
-      </div>
-    </nav>
+  <header id="header">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 relative" style="min-height: 120px;">
+      <a href="#" class="logo absolute" style="left:1rem; bottom:25px;">Andres Moraga Triviño</a>
+      <nav class="absolute hidden sm:block" style="right:1rem; bottom:25px;">
+        <a href="#sobre-mi" class="ml-0 sm:ml-12">Sobre mí</a>
+        <a href="#proyectos" class="ml-0 sm:ml-12">Proyectos</a>
+        <a href="#contacto" class="ml-0 sm:ml-12">Contacto</a>
+        <a href="cv.pdf" download class="ml-0 sm:ml-12">CV</a>
+      </nav>
+      <!-- Mobile nav toggle would go here, simplified for now -->
+      <nav class="sm:hidden text-center pb-4" style="padding-top: 80px;">
+        <a href="#sobre-mi" class="mx-3">Sobre mí</a>
+        <a href="#proyectos" class="mx-3">Proyectos</a>
+        <a href="#contacto" class="mx-3">Contacto</a>
+        <a href="cv.pdf" download class="mx-3">CV</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="min-h-screen flex items-center justify-center px-4 pt-16">
-      <div class="max-w-3xl mx-auto text-center animate-fade-in-up">
-        <p class="text-[#FFD700] font-medium mb-4">Hola, soy</p>
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">Andres Moraga Triviño</h1>
-        <div class="flex justify-center mb-4">
-          <picture>
-            <source srcset="images/profile.webp" type="image/webp" />
-            <img src="images/profile.png" alt="Andres Moraga Triviño"
-              class="w-48 h-48 sm:w-56 sm:h-56 rounded-full object-cover border-4 border-[#FFD700]/30 shadow-lg"
-              onerror="this.style.display='none'" />
-          </picture>
+  <!-- Banner / Hero -->
+  <section id="banner">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+      <div class="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
+        <div class="sm:w-1/2 text-center sm:text-left animate-fade-in-up">
+          <p class="mb-4">Hola, soy <strong class="font-bold text-[#f6f8f8]">Andres Moraga Triviño</strong></p>
+          <p class="mb-6">Full Stack Developer — creo aplicaciones web rápidas, inclusivas y orientadas al usuario.</p>
+          <a href="#proyectos" class="button-large">Ver proyectos</a>
         </div>
-        <p class="text-xl sm:text-2xl text-[#FDFDFD] font-medium mb-3">Full Stack Developer</p>
-        <p class="text-lg text-[#FDFDFD]/70 mb-8 max-w-xl mx-auto leading-relaxed">Creo aplicaciones web creando experiencias rápidas, inclusivas y orientadas al usuario</p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#proyectos" class="px-6 py-3 rounded-lg bg-[#FFD700] text-[#1E2124] font-semibold hover:bg-[#D4A800] transition-colors shadow-lg shadow-[#FFD700]/25">Ver proyectos</a>
-          <a href="#contacto" class="px-6 py-3 rounded-lg border-2 border-[#2E3238] font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Contáctame</a>
+        <div class="sm:w-1/2 flex justify-center">
+          <a class="bordered-feature-image max-w-xs w-full">
+            <picture>
+              <source srcset="images/profile.webp" type="image/webp" />
+              <img src="images/profile.png" alt="Andres Moraga Triviño" />
+            </picture>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About Me -->
-    <section id="sobre-mi" class="py-20 px-4">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold mb-8 text-center">
-          <span class="text-[#FFD700]">#</span> Sobre mí
-        </h2>
-        <div class="text-[#FDFDFD]/80 space-y-4 mb-10 text-center leading-relaxed">
-          <p>Ingeniero en Informática y Contador con experiencia previa en administración, operaciones y asesoría a pequeñas empresas. Tras un tiempo alejado del área técnica, hoy me he reencantado con la tecnología y especializado en desarrollo web, uniendo la lógica de los números y los procesos de negocio con la creación de software.</p>
-        </div>
-        <h3 class="text-xl font-semibold mb-6 text-center">Tecnologías</h3>
-        <div class="flex flex-wrap gap-3 justify-center">
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🐍</span><span class="text-[#A5B4FC]">Python</span></span>
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🎯</span><span class="text-[#A5B4FC]">Django</span></span>
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🐙</span><span class="text-[#A5B4FC]">GitHub</span></span>
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>⚡</span><span class="text-[#A5B4FC]">JavaScript</span></span>
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>📘</span><span class="text-[#A5B4FC]">TypeScript</span></span>
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🐳</span><span class="text-[#A5B4FC]">Docker</span></span>
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🔧</span><span class="text-[#A5B4FC]">OpenCode</span></span>
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>📝</span><span class="text-[#A5B4FC]">Git</span></span>
-          <span class="px-4 py-2 rounded-full bg-[#2E3238] text-sm font-medium flex items-center gap-2 border border-[#A5B4FC]/30"><span>🗄️</span><span class="text-[#A5B4FC]">PostgreSQL</span></span>
-        </div>
+  <!-- About / Features -->
+  <section id="features">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl mb-2">Sobre mí</h2>
+        <div class="w-16 h-1 bg-[#ed391b] mx-auto rounded-full"></div>
       </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="proyectos" class="py-20 px-4 bg-[#1E2124]">
-      <div class="max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold mb-4 text-center">
-          <span class="text-[#FFD700]">#</span> Proyectos
-        </h2>
-        <p class="text-[#FDFDFD]/70 text-center mb-10 max-w-lg mx-auto">Proyectos que muestran mi experiencia en distintas tecnologías y enfoques.</p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Akela Gym -->
-          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video overflow-hidden">
-              <img src="images/ecotrack-dash.png" alt="Akela Gym preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-lg font-bold mb-2">Akela Gym</h3>
-              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Aplicación web para gimnasio. Registro de usuarios, creación de rutinas personalizadas, asignación a cada alumno y seguimiento de avance.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Django</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Tailwind CSS</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">SQLite</span>
-              </div>
-              <div class="flex gap-3">
-                <a href="https://github.com/Andres-ux2026/Proyecto-bootcam1.git" target="_blank" rel="noopener noreferrer" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="https://proyecto-bootcam1-4.onrender.com/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Tienda Ecommerce Bootcamp -->
-          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video overflow-hidden bg-[#1E2124]">
-              <img src="images/tienda-ecommerce.png" alt="Tienda Ecommerce Bootcamp" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300" />
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-lg font-bold mb-2">Tienda Ecommerce Bootcamp</h3>
-              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Sistema de e-commerce completo desarrollado en Django 6.0 con PostgreSQL y autenticación por roles. Incluye catálogo de productos, carrito de compras, flujo de pedidos y panel de administración.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Python 3.12+</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Django</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Docker</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Docker Compose</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">PostgreSQL</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Render</span>
-              </div>
-              <div class="flex gap-3">
-                <a href="https://github.com/Andres-ux2026/Leccion-Final-Modulo-8" target="_blank" rel="noopener noreferrer" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="https://leccion-final-modulo-8.onrender.com/products/" target="_blank" rel="noopener noreferrer" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- CryptoSprout -->
-          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video bg-gradient-to-br from-[#2E3238] to-[#1E2124] flex items-center justify-center">
-              <div class="text-4xl font-bold text-[#FFD700]/40 select-none">{'{ }'}</div>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-lg font-bold mb-2">CryptoSprout</h3>
-              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Simulador educativo de billetera virtual para la gestión de microinversiones en criptoactivos orientada a jóvenes.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">TypeScript</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Next.js</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Sass</span>
-              </div>
-              <div class="flex gap-3">
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- ChefReserve API -->
-          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video bg-gradient-to-br from-[#2E3238] to-[#1E2124] flex items-center justify-center">
-              <div class="text-4xl font-bold text-[#FFD700]/40 select-none">{'{ }'}</div>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-lg font-bold mb-2">ChefReserve API</h3>
-              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">API REST para la gestión de reservas de restaurantes con alta concurrencia y sistema de notificaciones automáticas.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Node.js</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Express</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">MongoDB</span>
-              </div>
-              <div class="flex gap-3">
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- AuraFit App -->
-          <article class="group rounded-xl border border-[#2E3238] bg-[#2E3238] overflow-hidden hover:shadow-lg hover:shadow-[#FFD700]/10 transition-all duration-300 hover:-translate-y-1 flex flex-col">
-            <div class="aspect-video bg-gradient-to-br from-[#2E3238] to-[#1E2124] flex items-center justify-center">
-              <div class="text-4xl font-bold text-[#FFD700]/40 select-none">{'{ }'}</div>
-            </div>
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="text-lg font-bold mb-2">AuraFit App</h3>
-              <p class="text-sm text-[#FDFDFD]/70 leading-relaxed mb-4 flex-1">Landing page minimalista para una aplicación móvil de bienestar mental, meditación guiada y seguimiento del sueño.</p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">Astro</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">HTML5</span>
-                <span class="px-2.5 py-1 rounded-md bg-[#1E2124] text-xs font-medium text-[#A5B4FC] border border-[#A5B4FC]/20">CSS Grid</span>
-              </div>
-              <div class="flex gap-3">
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg border-2 border-[#2E3238] text-sm font-semibold hover:border-[#FFD700] hover:text-[#FFD700] transition-colors">Código</a>
-                <a href="#" class="flex-1 text-center px-4 py-2 rounded-lg bg-[#FFD700] text-[#1E2124] text-sm font-semibold hover:bg-[#D4A800] transition-colors">Demo</a>
-              </div>
-            </div>
-          </article>
-
-        </div>
+      <div class="max-w-3xl mx-auto text-center text-lg leading-relaxed mb-10">
+        <p>Ingeniero en Informática y Contador con experiencia previa en administración y finanzas. Tras años optimizando procesos empresariales, hoy me he reencantado con el desarrollo web, traduciendo esa visión de negocio en la creación de aplicaciones funcionales y eficientes.</p>
+        <p class="mt-4">Me especializo en construir soluciones web ordenadas, alineadas con los objetivos operativos y financieros de cada proyecto. Busco integrarme a un equipo tecnológico donde pueda aportar mi madurez laboral, mi capacidad de organización y seguir creciendo como desarrollador.</p>
       </div>
-    </section>
+      <h3 class="text-center text-2xl mb-6">Tecnologías</h3>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">Django</span>
+        <span class="skill-badge">GitHub</span>
+        <span class="skill-badge">JavaScript</span>
+        <span class="skill-badge">TypeScript</span>
+        <span class="skill-badge">Docker</span>
+        <span class="skill-badge">OpenCode</span>
+        <span class="skill-badge">Git</span>
+        <span class="skill-badge">PostgreSQL</span>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section id="contacto" class="py-20 px-4">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-4">
-          <span class="text-[#FFD700]">#</span> Contacto
-        </h2>
-        <p class="text-[#FDFDFD]/70 mb-10 max-w-md mx-auto">¿Tienes un proyecto en mente o quieres conversar? Escríbeme:</p>
+  <!-- Projects / Content -->
+  <section id="content">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl mb-2">Proyectos</h2>
+        <div class="w-16 h-1 bg-[#ed391b] mx-auto rounded-full"></div>
+        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Proyectos que muestran mi experiencia en distintas tecnologías y enfoques.</p>
+      </div>
 
-        <form id="contact-form" class="max-w-lg mx-auto text-left mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- EcoTrack Dash -->
+        <div class="card rounded-xl overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+            <img src="images/ecotrack-dash.png" alt="EcoTrack Dash" class="w-full h-full object-cover" onerror="this.style.display='none'" />
+          </div>
+          <div class="mt-4">
+            <h3>EcoTrack Dash</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">Dashboard interactivo para medir la huella de carbono empresarial en tiempo real con gráficos dinámicos.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">React</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Chart.js</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/Andres-ux2026/ecotrack" target="_blank" rel="noopener noreferrer" class="button flex-1 text-center">Código</a>
+              <a href="https://ecotrack-demo.onrender.com" target="_blank" rel="noopener noreferrer" class="button flex-1 text-center">Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tienda Ecommerce Bootcamp -->
+        <div class="card rounded-xl overflow-hidden">
+          <div class="aspect-video overflow-hidden bg-gray-200">
+            <img src="images/tienda-ecommerce.png" alt="Tienda Ecommerce Bootcamp" class="w-full h-full object-contain" />
+          </div>
+          <div class="mt-4">
+            <h3>Tienda Ecommerce Bootcamp</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">Sistema de e-commerce completo desarrollado en Django 6.0 con PostgreSQL y autenticación por roles. Incluye catálogo de productos, carrito de compras, flujo de pedidos y panel de administración.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">Python 3.12+</span>
+              <span class="tag">Django</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Docker Compose</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Render</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="https://github.com/Andres-ux2026/Leccion-Final-Modulo-8" target="_blank" rel="noopener noreferrer" class="button flex-1 text-center">Código</a>
+              <a href="https://leccion-final-modulo-8.onrender.com/products/" target="_blank" rel="noopener noreferrer" class="button flex-1 text-center">Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CryptoSprout -->
+        <div class="card rounded-xl overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+            <div class="text-4xl font-bold text-gray-300 select-none">{'{ }'}</div>
+          </div>
+          <div class="mt-4">
+            <h3>CryptoSprout</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">Simulador educativo de billetera virtual para la gestión de microinversiones en criptoactivos orientada a jóvenes.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">TypeScript</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Sass</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="#" class="button flex-1 text-center">Código</a>
+              <a href="#" class="button flex-1 text-center">Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ChefReserve API -->
+        <div class="card rounded-xl overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+            <div class="text-4xl font-bold text-gray-300 select-none">{'{ }'}</div>
+          </div>
+          <div class="mt-4">
+            <h3>ChefReserve API</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">API REST para la gestión de reservas de restaurantes con alta concurrencia y sistema de notificaciones automáticas.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">Node.js</span>
+              <span class="tag">Express</span>
+              <span class="tag">MongoDB</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="#" class="button flex-1 text-center">Código</a>
+              <a href="#" class="button flex-1 text-center">Demo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- AuraFit App -->
+        <div class="card rounded-xl overflow-hidden">
+          <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+            <div class="text-4xl font-bold text-gray-300 select-none">{'{ }'}</div>
+          </div>
+          <div class="mt-4">
+            <h3>AuraFit App</h3>
+            <p class="text-sm text-gray-600 leading-relaxed mb-4">Landing page minimalista para una aplicación móvil de bienestar mental, meditación guiada y seguimiento del sueño.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="tag">Astro</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS Grid</span>
+            </div>
+            <div class="flex gap-3">
+              <a href="#" class="button flex-1 text-center">Código</a>
+              <a href="#" class="button flex-1 text-center">Demo</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contacto" class="bg-[#f7f7f7]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14">
+      <div class="text-center mb-10">
+        <h2 style="font-family:'Yanone Kaffeesatz',sans-serif;font-size:1.8em;color:#373f42;" class="text-4xl mb-2">Contacto</h2>
+        <div class="w-16 h-1 bg-[#ed391b] mx-auto rounded-full"></div>
+        <p class="text-gray-500 mt-3">¿Tienes un proyecto en mente o quieres conversar? Escríbeme:</p>
+      </div>
+
+      <div class="card max-w-lg mx-auto">
+        <form id="contact-form">
           <div class="mb-4">
-            <label for="name" class="block text-sm font-medium mb-1">Nombre</label>
-            <input type="text" id="name" name="name" required
-              class="w-full px-4 py-2.5 rounded-lg border border-[#2E3238] bg-[#2E3238] focus:ring-2 focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors text-[#FDFDFD]" />
+            <label for="name" class="block text-sm font-medium mb-1" style="color:#373f42;">Nombre</label>
+            <input type="text" id="name" name="name" required class="halcyon-input" placeholder="Tu nombre" />
           </div>
           <div class="mb-4">
-            <label for="email" class="block text-sm font-medium mb-1">Email</label>
-            <input type="email" id="email" name="email" required
-              class="w-full px-4 py-2.5 rounded-lg border border-[#2E3238] bg-[#2E3238] focus:ring-2 focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors text-[#FDFDFD]" />
+            <label for="email" class="block text-sm font-medium mb-1" style="color:#373f42;">Email</label>
+            <input type="email" id="email" name="email" required class="halcyon-input" placeholder="tu@email.com" />
           </div>
           <div class="mb-4">
-            <label for="subject" class="block text-sm font-medium mb-1">Asunto</label>
-            <input type="text" id="subject" name="subject" required
-              class="w-full px-4 py-2.5 rounded-lg border border-[#2E3238] bg-[#2E3238] focus:ring-2 focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors text-[#FDFDFD]" />
+            <label for="subject" class="block text-sm font-medium mb-1" style="color:#373f42;">Asunto</label>
+            <input type="text" id="subject" name="subject" required class="halcyon-input" placeholder="Asunto del mensaje" />
           </div>
           <div class="mb-4">
-            <label for="message" class="block text-sm font-medium mb-1">Mensaje</label>
-            <textarea id="message" name="message" rows="5" required
-              class="w-full px-4 py-2.5 rounded-lg border border-[#2E3238] bg-[#2E3238] focus:ring-2 focus:ring-[#FFD700] focus:border-transparent outline-none transition-colors resize-y text-[#FDFDFD]"></textarea>
+            <label for="message" class="block text-sm font-medium mb-1" style="color:#373f42;">Mensaje</label>
+            <textarea id="message" name="message" rows="5" required class="halcyon-input" placeholder="Escribe tu mensaje aquí..."></textarea>
           </div>
-          <button type="submit"
-            class="w-full px-6 py-3 rounded-lg bg-[#FFD700] text-[#1E2124] font-semibold hover:bg-[#D4A800] transition-colors shadow-lg shadow-[#FFD700]/25 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            Enviar mensaje
-          </button>
+          <button type="submit" class="button w-full text-center">Enviar mensaje</button>
           <p id="form-status" class="mt-4 text-sm font-medium hidden"></p>
         </form>
+      </div>
 
-        <p class="text-[#FDFDFD]/70 mb-8">O encuéntrame en:</p>
-        <div class="flex justify-center gap-6">
-          <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-[#2E3238] hover:border-[#FFD700] hover:text-[#FFD700] transition-all font-medium">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <div class="text-center mt-10">
+        <p class="text-gray-500 mb-6">O encuéntrame en:</p>
+        <div class="flex justify-center gap-4">
+          <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" class="button" style="padding:0 20px;font-size:1em;">
             LinkedIn
           </a>
-          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-[#2E3238] hover:border-[#FFD700] hover:text-[#FFD700] transition-all font-medium">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" class="button" style="padding:0 20px;font-size:1em;">
             GitHub
           </a>
-          <a href="mailto:moraga_2006@hotmail.com" class="flex items-center gap-2 px-5 py-3 rounded-lg border border-[#2E3238] hover:border-[#FFD700] hover:text-[#FFD700] transition-all font-medium">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:moraga_2006@hotmail.com" class="button" style="padding:0 20px;font-size:1em;">
             Email
           </a>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="py-8 px-4 border-t border-[#2E3238]">
-    <div class="max-w-5xl mx-auto text-center text-sm text-[#FDFDFD]/50">
+  <footer id="footer" class="py-10 px-4 border-t border-gray-300">
+    <div class="max-w-5xl mx-auto text-center text-sm">
       <p>&copy; 2026 Andres Moraga Triviño. Todos los derechos reservados.</p>
     </div>
   </footer>
@@ -322,12 +525,12 @@
       })
         .then(() => {
           status.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.'
-          status.className = 'mt-4 text-sm font-medium text-[#FFD700]'
+          status.className = 'mt-4 text-sm font-medium text-[#ED391B]'
           this.reset()
         })
         .catch(() => {
           status.textContent = 'Hubo un error al enviar el mensaje. Intenta de nuevo.'
-          status.className = 'mt-4 text-sm font-medium text-red-400'
+          status.className = 'mt-4 text-sm font-medium text-red-600'
         })
         .finally(() => {
           btn.disabled = false
