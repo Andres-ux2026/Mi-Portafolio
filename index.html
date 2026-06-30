@@ -433,10 +433,11 @@
       border-radius: 100%;
       margin: 0 3em 2em 0;
       width: 22em;
+      height: 22em;
       overflow: hidden;
-      flex: 1;
+      flex-shrink: 0;
     }
-    .wrapper.spotlight .image img { border-radius: 100%; width: 100%; }
+    .wrapper.spotlight .image img { border-radius: 100%; width: 100%; height: 100%; object-fit: cover; }
     .wrapper.spotlight .content { width: 100%; flex: 2; }
     .wrapper.spotlight:nth-child(2n - 1) .inner {
       flex-direction: row-reverse;
@@ -449,19 +450,19 @@
     @media screen and (max-width: 980px) {
       .wrapper { margin: 4.75em 0; }
       .wrapper .inner { padding: 3em 3em 1em 3em; width: 100%; }
-      .wrapper.spotlight .image { margin: 0 2em 2em 0; width: 32em; }
+      .wrapper.spotlight .image { margin: 0 2em 2em 0; width: 32em; height: 32em; }
       .wrapper.spotlight:nth-child(2n - 1) .image { margin: 0 0 2em 2em; }
     }
     @media screen and (max-width: 736px) {
       .wrapper { margin: 2.5em 0; }
       .wrapper .inner { padding: 2em 2em 0.1em 2em; }
       .wrapper.spotlight .inner { align-items: flex-start; }
-      .wrapper.spotlight .image { width: 19em; margin: 0 1.75em 2em 0; }
+      .wrapper.spotlight .image { width: 19em; height: 19em; margin: 0 1.75em 2em 0; }
       .wrapper.spotlight:nth-child(2n - 1) .image { margin: 0 0 2em 1.75em; }
     }
     @media screen and (max-width: 480px) {
       .wrapper.spotlight .inner { display: block; }
-      .wrapper.spotlight .image { margin: 0 0 1em 0 !important; max-width: 85%; width: 12em; }
+      .wrapper.spotlight .image { margin: 0 0 1em 0 !important; max-width: 85%; width: 12em; height: 12em; }
     }
 
     /* Footer */
@@ -597,7 +598,7 @@
       <!-- About -->
       <section id="sobre-mi" class="wrapper spotlight style1">
         <div class="inner">
-          <a class="image"><img src="images/profile.webp" alt="Andres Moraga Triviño" onerror="this.src='images/profile.png'" /></a>
+          <a class="image"><img src="images/Gemini_Generated_Image_2e60rz2e60rz2e60.png" alt="Andres Moraga Triviño" style="object-fit:cover;width:100%;height:100%;" /></a>
           <div class="content">
             <h2 class="major">Sobre mí</h2>
             <p>Ingeniero en Informática y Contador con experiencia previa en administración, operaciones y asesoría a pequeñas empresas. Tras un tiempo alejado del área técnica, hoy me he reencantado con la tecnología y especializado en desarrollo web, uniendo la lógica de los números y los procesos de negocio con la creación de software. Busco integrarme a un equipo tecnológico donde pueda aportar mi madurez laboral, mi capacidad de organización y seguir creciendo como desarrollador.</p>
