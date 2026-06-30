@@ -1,508 +1,785 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andres Moraga Triviño | Full Stack Developer</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-
   <meta name="description" content="Portafolio de Andres Moraga Triviño - Full Stack Developer" />
   <meta property="og:title" content="Andres Moraga Triviño | Full Stack Developer" />
   <meta property="og:description" content="Portafolio profesional - Construyo experiencias web rápidas y accesibles" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://andres-ux2026.github.io/Mi-Portafolio" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:300,600,300italic,600italic" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            halcyon: ['Yanone Kaffeesatz', 'sans-serif'],
-          },
-        },
-      },
-    }
-  </script>
-
-  <title>Andres Moraga Triviño | Full Stack Developer</title>
-
   <style>
+    *, *:before, *:after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
+      background-color: #2e3141;
+      background-image: linear-gradient(to top, rgba(46,49,65,0.8), rgba(46,49,65,0.8));
+      background-attachment: fixed;
+      background-position: center center;
+      background-size: cover;
+      color: #fff;
+      font-family: "Source Sans Pro", Helvetica, sans-serif;
+      font-size: 16.5pt;
+      font-weight: 300;
+      line-height: 1.65;
       margin: 0;
-      background: #D4D9DD;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
-      color: #474f51;
-      font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.85em;
     }
-    ::selection { background-color: rgba(237, 57, 27, 0.2); color: #fff; }
+    @media screen and (max-width: 1680px) { body { font-size: 13pt; } }
+    @media screen and (max-width: 1280px) { body { font-size: 12pt; } }
+    @media screen and (max-width: 980px)  { body { font-size: 12pt; } }
+    @media screen and (max-width: 736px)  { body { font-size: 12pt; } }
+    @media screen and (max-width: 480px)  { body { font-size: 12pt; } }
+
+    a {
+      transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+      border-bottom: dotted 1px rgba(255,255,255,0.35);
+      color: #fff;
+      text-decoration: none;
+    }
+    a:hover { border-bottom-color: transparent; color: #fff !important; }
+
+    strong, b { color: #fff; font-weight: 600; }
+    p { margin: 0 0 2em 0; }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #fff;
+      font-family: Raleway, Helvetica, sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin: 0 0 1em 0;
+      text-transform: uppercase;
+    }
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; text-decoration: none; border-bottom: 0; }
+    h1 span, h2 span, h3 span, h4 span, h5 span, h6 span { font-weight: 200; }
+    h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
+      padding-bottom: 1em;
+      border-bottom: solid 2px rgba(255,255,255,0.125);
+    }
+    h2 { font-size: 1.2em; }
+    h3 { font-size: 0.9em; }
+    @media screen and (max-width: 736px) { h2 { font-size: 1em; } h3 { font-size: 0.8em; } }
+
+    hr { border: 0; border-bottom: solid 2px rgba(255,255,255,0.125); margin: 2.5em 0; }
+    hr.major { margin: 4em 0; }
+
+    .align-left { text-align: left; }
+    .align-center { text-align: center; }
+    .align-right { text-align: right; }
+
+    /* Image */
+    .image { border-radius: 5px; border: 0; display: inline-block; position: relative; }
+    .image img { border-radius: 5px; display: block; width: 100%; }
+    .image.fit { display: block; margin: 0 0 2em 0; width: 100%; }
+    .image.main { display: block; margin: 0 0 3em 0; width: 100%; }
+    .image.left { float: left; padding: 0 1.5em 1em 0; top: 0.25em; max-width: 40%; }
+    .image.right { float: right; padding: 0 0 1em 1.5em; top: 0.25em; max-width: 40%; }
+
+    /* Button */
+    input[type="submit"], input[type="reset"], input[type="button"], button, .button {
+      appearance: none;
+      transition: background-color 0.2s ease-in-out;
+      background-color: transparent;
+      border-radius: 5px;
+      border: 0;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.125);
+      color: #fff !important;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Raleway, Helvetica, sans-serif;
+      font-size: 0.8em;
+      font-weight: 700;
+      height: 3.75em;
+      letter-spacing: 0.1em;
+      line-height: 3.75em;
+      padding: 0 2.25em;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    input[type="submit"]:hover, input[type="reset"]:hover, input[type="button"]:hover, button:hover, .button:hover {
+      background-color: rgba(255,255,255,0.025);
+    }
+    input[type="submit"]:active, input[type="reset"]:active, input[type="button"]:active, button:active, .button:active {
+      background-color: rgba(255,255,255,0.075);
+    }
+    input[type="submit"].primary, input[type="reset"].primary, input[type="button"].primary, button.primary, .button.primary {
+      background-color: #4c5c96;
+      box-shadow: none;
+    }
+    input[type="submit"].primary:hover, input[type="reset"].primary:hover, input[type="button"].primary:hover, button.primary:hover, .button.primary:hover {
+      background-color: #53639e;
+    }
+    input[type="submit"].primary:active, input[type="reset"].primary:active, input[type="button"].primary:active, button.primary:active, .button.primary:active {
+      background-color: #45558d;
+    }
+    input[type="submit"].fit, input[type="reset"].fit, input[type="button"].fit, button.fit, .button.fit { width: 100%; }
+    input[type="submit"].small, input[type="reset"].small, input[type="button"].small, button.small, .button.small { font-size: 0.6em; }
+    input[type="submit"].large, input[type="reset"].large, input[type="button"].large, button.large, .button.large { font-size: 1em; }
+    input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"].disabled, input[type="reset"]:disabled,
+    input[type="button"].disabled, input[type="button"]:disabled, button.disabled, button:disabled, .button.disabled, .button:disabled { opacity: 0.25; }
+
+    /* Form */
+    form { margin: 0 0 2em 0; }
+    form > :last-child { margin-bottom: 0; }
+    form > .fields {
+      display: flex; flex-wrap: wrap;
+      width: calc(100% + 3em);
+      margin: -1.5em 0 2em -1.5em;
+    }
+    form > .fields > .field {
+      flex-grow: 0; flex-shrink: 0;
+      padding: 1.5em 0 0 1.5em;
+      width: calc(100% - 1.5em);
+    }
+    form > .fields > .field.half { width: calc(50% - 0.75em); }
+    label {
+      color: #fff;
+      display: block;
+      font-family: Raleway, Helvetica, sans-serif;
+      font-size: 0.8em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin: 0 0 0.7em 0;
+      text-transform: uppercase;
+    }
+    input[type="text"], input[type="password"], input[type="email"], select, textarea {
+      appearance: none;
+      background: rgba(255,255,255,0.025);
+      border-radius: 5px;
+      border: solid 2px rgba(255,255,255,0.125);
+      color: inherit;
+      display: block;
+      outline: 0;
+      padding: 0 1em;
+      text-decoration: none;
+      width: 100%;
+    }
+    input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+      border-color: #5b6ba6;
+    }
+    input[type="text"], input[type="password"], input[type="email"], select { height: 2.75em; }
+    textarea { padding: 0.75em 1em; }
+    ::-webkit-input-placeholder { color: rgba(255,255,255,0.35) !important; opacity: 1.0; }
+    :-moz-placeholder { color: rgba(255,255,255,0.35) !important; opacity: 1.0; }
+    ::-moz-placeholder { color: rgba(255,255,255,0.35) !important; opacity: 1.0; }
+    :-ms-input-placeholder { color: rgba(255,255,255,0.35) !important; opacity: 1.0; }
+
+    /* Icon */
+    .icon { text-decoration: none; border-bottom: none; position: relative; }
+    .icon:before {
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 400;
+    }
+    .icon > .label { display: none; }
+    .icon.solid:before { font-weight: 900; }
+    .icon.brands:before { font-family: 'Font Awesome 5 Brands'; }
+
+    /* List */
+    ul { list-style: disc; margin: 0 0 2em 0; padding-left: 1em; }
+    ul li { padding-left: 0.5em; }
+    ul.alt { list-style: none; padding-left: 0; }
+    ul.alt li { border-top: solid 1px rgba(255,255,255,0.125); padding: 0.5em 0; }
+    ul.alt li:first-child { border-top: 0; padding-top: 0; }
+
+    /* Actions */
+    ul.actions {
+      display: flex;
+      cursor: default;
+      list-style: none;
+      margin: 0 0 2em 0;
+      padding-left: 0;
+    }
+    ul.actions li { padding: 0 1em 0 0; vertical-align: middle; }
+    ul.actions li:last-child { padding-right: 0; }
+    ul.actions.stacked { flex-direction: column; }
+    ul.actions.stacked li { padding: 0 0 1em 0; width: 100%; }
+    ul.actions.stacked li:last-child { padding-bottom: 0; }
+    ul.actions.stacked li > * { width: 100%; margin: 0 !important; }
+    @media screen and (max-width: 480px) {
+      ul.actions:not(.fixed) { flex-direction: column; margin-left: 0; width: 100% !important; }
+      ul.actions:not(.fixed) li { padding: 1em 0 0 0; width: 100%; }
+      ul.actions:not(.fixed) li > * { width: 100%; margin: 0 !important; }
+      ul.actions:not(.fixed) li:first-child { padding-top: 0; }
+    }
+
+    /* Contact */
+    ul.contact { list-style: none; padding: 0; }
+    ul.contact li {
+      text-decoration: none;
+      margin: 2.5em 0 0 0;
+      padding: 0 0 0 3.25em;
+      position: relative;
+    }
+    ul.contact li:before {
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      line-height: 1;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+    }
+    ul.contact li:before {
+      border-radius: 100%;
+      border: solid 2px rgba(255,255,255,0.125);
+      display: inline-block;
+      font-size: 0.8em;
+      height: 2.25em;
+      left: 0;
+      line-height: 2.25em;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 2.25em;
+    }
+    ul.contact li:first-child { margin-top: 0; }
+
+    /* Features */
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 0 2em 0;
+    }
+    .features article {
+      padding: 1.75em 1.75em 0.1em 1.75em;
+      background-color: #353849;
+      border-radius: 5px;
+      margin: 1.5em 3em 1.5em 0;
+      width: calc(50% - 1.5em);
+    }
+    .features article:nth-child(2n) { margin-right: 0; }
+    .features article .image {
+      border-radius: 5px 5px 0 0;
+      display: block;
+      margin-bottom: 1.75em;
+      margin-left: -1.75em;
+      margin-top: -1.75em;
+      position: relative;
+      width: calc(100% + 3.5em);
+    }
+    .features article .image img { border-radius: 5px 5px 0 0; width: 100%; }
+    @media screen and (max-width: 980px) {
+      .features article { margin: 1em 2em 1em 0; width: calc(50% - 1em); }
+    }
+    @media screen and (max-width: 736px) {
+      .features article {
+        padding: 1.5em 1.5em 0.1em 1.5em;
+        margin: 0.875em 1.75em 0.875em 0;
+        width: calc(50% - 0.875em - 1px);
+      }
+      .features article .image {
+        margin-bottom: 1.5em;
+        margin-left: -1.5em;
+        margin-top: -1.5em;
+        width: calc(100% + 3em);
+      }
+    }
+    @media screen and (max-width: 480px) {
+      .features { display: block; }
+      .features article { width: 100%; margin: 0 0 2em 0 !important; }
+    }
 
     /* Header */
     #header {
-      background: #3B4346;
-      background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 6px);
-      border-bottom: solid 1px #272d30;
-      box-shadow: inset 0px -1px 0px 0px #51575a;
-      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
+      transition: background-color 0.2s ease-in-out;
+      background-color: rgba(53,56,73,0.95);
+      height: 3.5em;
+      left: 0;
+      line-height: 3.5em;
+      padding: 0 1.25em;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10000;
     }
-    #header .logo {
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 2.75em;
-      font-weight: 200;
+    #header h1 {
+      transition: opacity 0.2s ease-in-out, visibility 0.2s;
+      border-bottom: 0;
+      font-size: 0.8em;
+      margin-bottom: 0;
+      opacity: 1;
+      visibility: visible;
+      display: inline;
     }
-    #header nav a {
-      color: #c6c8c8;
-      text-decoration: none;
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.4em;
-      font-weight: 200;
-      transition: color 0.2s;
+    #header h1 a { border: 0; }
+    #header nav {
+      font-family: Raleway, Helvetica, sans-serif;
+      font-size: 0.8em;
+      font-weight: 700;
+      height: 3em;
+      letter-spacing: 0.1em;
+      line-height: 3em;
+      position: absolute;
+      right: 0.7em;
+      text-transform: uppercase;
+      top: 0.7em;
     }
-    #header nav a:hover {
-      color: #f6f8f8;
+    #header nav a { border: 0; display: inline-block; padding: 0 1em; }
+    @media screen and (max-width: 736px) {
+      #header { height: 2.75em; line-height: 2.75em; }
+      #header nav { top: 0; right: 0; height: inherit; line-height: inherit; }
+      #header nav a { height: inherit; line-height: inherit; }
     }
+    #header .nav-link { border: 0; display: inline-block; padding: 0 1em; }
 
     /* Banner */
-    #banner {
-      background: #3B4346;
-      background-image: repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 6px);
-      border-top: solid 1px #222628;
-      box-shadow: inset 0px 1px 0px 0px #3e484a;
-      color: #fff;
+    #banner { padding: 10em 0 4.75em 0; }
+    #banner .inner { margin: 0 auto; width: 55em; }
+    #banner .logo {
+      transition: opacity 2s ease, transform 1s ease;
+      transform: translateY(0);
+      opacity: 1;
+      margin: 0 0 1.3em 0;
+    }
+    #banner .logo .icon {
+      border-radius: 100%;
+      border: solid 2px rgba(255,255,255,0.125);
+      cursor: default;
+      display: inline-block;
+      font-size: 2em;
+      height: 2.25em;
+      line-height: 2.25em;
+      text-align: center;
+      width: 2.25em;
+    }
+    #banner h2 {
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateX(0);
+      border-bottom: solid 2px rgba(255,255,255,0.125);
+      font-size: 2.25em;
+      margin-bottom: 0.8em;
+      padding-bottom: 0.4em;
     }
     #banner p {
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 2em;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateX(0);
+      font-family: Raleway, Helvetica, sans-serif;
+      font-size: 1em;
       font-weight: 200;
-      line-height: 1.25em;
+      letter-spacing: 0.1em;
+      line-height: 2;
+      text-transform: uppercase;
+    }
+    @media screen and (max-width: 1280px) {
+      #banner { padding: 7em 0 8.25em 0; }
+    }
+    @media screen and (max-width: 980px) {
+      #banner { padding: 12em 3em 12.375em 3em; }
+      #banner .inner { width: 100%; }
+    }
+    @media screen and (max-width: 736px) {
+      #banner { padding: 5em 2em 4.25em 2em; }
+      #banner .logo .icon { font-size: 1.5em; }
+      #banner h2 { font-size: 1.5em; }
+      #banner p { font-size: 0.8em; }
     }
 
-    /* Bordered image */
-    .bordered-feature-image {
-      display: block;
-      background: #fff;
-      padding: 10px;
-      box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
+    /* Wrapper */
+    #wrapper > header { padding: 11em 0 2.25em 0; }
+    #wrapper > header .inner { margin: 0 auto; width: 55em; }
+    #wrapper > header h2 {
+      border-bottom: solid 2px rgba(255,255,255,0.125);
+      font-size: 2em;
+      margin-bottom: 0.8em;
+      padding-bottom: 0.4em;
     }
-    .bordered-feature-image img {
-      display: block;
-      width: 100%;
+    #wrapper > header p {
+      font-family: Raleway, Helvetica, sans-serif;
+      font-size: 1em;
+      font-weight: 200;
+      letter-spacing: 0.1em;
+      line-height: 2;
+      text-transform: uppercase;
     }
-
-    /* Buttons */
-    .button-large {
-      display: inline-block;
-      background: linear-gradient(to bottom, #ed391b, #ce1a00);
-      background-color: #ed391b;
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.75em;
-      height: 2em;
-      line-height: 2.125em;
-      font-weight: 300;
-      padding: 0 45px;
-      border-radius: 10px;
-      box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 3px 3px 3px 1px rgba(0, 0, 0, 0.15);
-      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
-      transition: background 0.2s;
+    @media screen and (max-width: 1280px) {
+      #wrapper > header { padding: 9em 0 6.25em 0; }
     }
-    .button-large:hover {
-      background: linear-gradient(to bottom, #fd492b, #de2a10);
-      background-color: #fd492b;
+    @media screen and (max-width: 980px) {
+      #wrapper > header { padding: 11em 3em 7.375em 3em; }
+      #wrapper > header .inner { width: 100%; }
     }
-    .button-large:active {
-      background: linear-gradient(to bottom, #ce1a00, #ed391b);
-      background-color: #ce1a00;
+    @media screen and (max-width: 736px) {
+      #wrapper > header { padding: 6.5em 2em 3em 2em; }
+      #wrapper > header h2 { font-size: 1.25em; }
+      #wrapper > header p { font-size: 0.8em; }
     }
 
-    .button {
-      display: inline-block;
-      background: linear-gradient(to bottom, #ed391b, #ce1a00);
-      background-color: #ed391b;
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.25em;
-      height: 2.5em;
-      line-height: 2.5em;
-      font-weight: 300;
-      padding: 0 25px;
-      border-radius: 8px;
-      box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.75), inset 0px 2px 0px 0px rgba(255, 192, 192, 0.5), inset 0px 0px 0px 2px rgba(255, 96, 96, 0.85), 2px 2px 2px 1px rgba(0, 0, 0, 0.15);
-      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.5);
-      transition: background 0.2s;
+    .wrapper {
+      background-color: #2e3141;
+      margin: 6.5em 0;
+      position: relative;
     }
-    .button:hover {
-      background: linear-gradient(to bottom, #fd492b, #de2a10);
-      background-color: #fd492b;
+    .wrapper .inner { padding: 3em 0 1em 0; margin: 0 auto; width: 55em; }
+    .wrapper.style2 { background-color: #353849; }
+    .wrapper.style3 { background-color: #3d4051; }
+    .wrapper.spotlight { background-color: #4c5c96; }
+    .wrapper.spotlight .inner {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
     }
-    .button:active {
-      background: linear-gradient(to bottom, #ce1a00, #ed391b);
-      background-color: #ce1a00;
+    .wrapper.spotlight .image {
+      border-radius: 100%;
+      margin: 0 3em 2em 0;
+      width: 22em;
+      overflow: hidden;
+      flex: 1;
     }
+    .wrapper.spotlight .image img { border-radius: 100%; width: 100%; }
+    .wrapper.spotlight .content { width: 100%; flex: 2; }
+    .wrapper.spotlight:nth-child(2n - 1) .inner {
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+    .wrapper.spotlight:nth-child(2n - 1) .image { margin: 0 0 2em 3em; }
+    .wrapper.spotlight.style2 { background-color: #45558d; }
+    .wrapper.spotlight.style3 { background-color: #3f4e85; }
 
-    /* Features */
-    #features {
-      background: #353D40;
-      background-image: repeating-linear-gradient(135deg, transparent, transparent 4px, rgba(0,0,0,0.06) 4px, rgba(0,0,0,0.06) 8px);
-      border-bottom: solid 1px #272e31;
-      text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.75);
-      color: #a0a8ab;
+    @media screen and (max-width: 980px) {
+      .wrapper { margin: 4.75em 0; }
+      .wrapper .inner { padding: 3em 3em 1em 3em; width: 100%; }
+      .wrapper.spotlight .image { margin: 0 2em 2em 0; width: 32em; }
+      .wrapper.spotlight:nth-child(2n - 1) .image { margin: 0 0 2em 2em; }
     }
-    #features h2 {
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.8em;
-      color: #fff;
+    @media screen and (max-width: 736px) {
+      .wrapper { margin: 2.5em 0; }
+      .wrapper .inner { padding: 2em 2em 0.1em 2em; }
+      .wrapper.spotlight .inner { align-items: flex-start; }
+      .wrapper.spotlight .image { width: 19em; margin: 0 1.75em 2em 0; }
+      .wrapper.spotlight:nth-child(2n - 1) .image { margin: 0 0 2em 1.75em; }
     }
-    #features h3 {
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.25em;
-      color: #fff;
-    }
-    #features a { color: #e0e8eb; }
-    #features strong { color: #fff; }
-    #features .skill-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.1);
-      color: #e0e8eb;
-      padding: 0.3em 1em;
-      border-radius: 4px;
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.15em;
-      border: solid 1px rgba(255,255,255,0.15);
-    }
-
-    /* Content */
-    #content {
-      background: #f7f7f7;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 20px, rgba(0,0,0,0.02) 20px, rgba(0,0,0,0.02) 21px);
-      border-top: solid 1px #fff;
-    }
-    #content h2 {
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.8em;
-      color: #373f42;
-    }
-    #content h3 {
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.25em;
-      color: #96a9b5;
-    }
-    #content a { color: #ED391B; }
-    #content .card {
-      background: #fff;
-      padding: 30px;
-      box-shadow: 2px 2px 2px 1px rgba(128, 128, 128, 0.1);
-      height: 100%;
-    }
-    #content .card h3 {
-      color: #373f42;
-      font-size: 1.4em;
-      margin: 0 0 0.25em 0;
-    }
-    #content .tag {
-      display: inline-block;
-      background: #f0f0f0;
-      color: #474f51;
-      padding: 0.2em 0.8em;
-      border-radius: 4px;
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.1em;
+    @media screen and (max-width: 480px) {
+      .wrapper.spotlight .inner { display: block; }
+      .wrapper.spotlight .image { margin: 0 0 1em 0 !important; max-width: 85%; width: 12em; }
     }
 
     /* Footer */
-    #footer {
-      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-      color: #546b76;
+    #footer .inner {
+      padding: 5em 0 3em 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin: 0 auto;
+      width: 55em;
     }
-    #footer h2 {
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.25em;
-      color: #212f35;
-    }
-    #footer a { color: #546b76; }
-
-    /* Form */
-    .halcyon-input {
-      background: #fff;
-      border: solid 1px #d0d4d6;
-      padding: 0.6em 1em;
-      border-radius: 6px;
-      font-family: 'Yanone Kaffeesatz', sans-serif;
-      font-size: 1.15em;
-      color: #474f51;
+    #footer .inner > * { width: 100%; }
+    #footer .inner form { margin: 0 3em 0 0; width: calc(50% - 1.5em); }
+    #footer .inner .contact { width: calc(50% - 1.5em); }
+    #footer .inner .copyright {
+      border-top: solid 2px rgba(255,255,255,0.125);
+      list-style: none;
+      margin: 4em 0 2em 0;
+      padding: 2em 0 0 0;
       width: 100%;
-      box-sizing: border-box;
-      transition: border-color 0.2s;
     }
-    .halcyon-input:focus {
-      border-color: #ED391B;
-      outline: none;
-      box-shadow: 0 0 4px rgba(237, 57, 27, 0.3);
+    #footer .inner .copyright li {
+      border-left: solid 2px rgba(255,255,255,0.125);
+      color: rgba(255,255,255,0.35);
+      display: inline-block;
+      font-size: 0.9em;
+      line-height: 1;
+      margin-left: 1em;
+      padding: 0;
+      padding-left: 1em;
     }
-    .halcyon-input::placeholder {
-      color: #a0a8ab;
+    #footer .inner .copyright li:first-child { border-left: 0; margin-left: 0; padding-left: 0; }
+    #footer .inner .copyright li a { color: inherit; }
+
+    @media screen and (max-width: 1280px) {
+      #footer { margin-top: -6.5em; padding-top: 6.5em; }
+    }
+    @media screen and (max-width: 980px) {
+      #footer { margin-top: -4.75em; padding-top: 4.75em; }
+      #footer .inner { padding: 3em 3em 1em 3em; display: block; width: 100%; }
+      #footer .inner form { width: 100%; margin: 0 0 4em 0; }
+      #footer .inner .contact { width: 100%; margin: 0 0 4em 0; }
+      #footer .inner .copyright { margin: 4em 0 2em 0; }
+    }
+    @media screen and (max-width: 736px) {
+      #footer { margin-top: -2.5em; padding-top: 2.5em; }
+      #footer .inner { padding: 2em 2em 0.1em 2em; }
+      #footer .inner form { margin: 0 0 3em 0; }
+      #footer .inner .contact { margin: 0 0 3em 0; }
+    }
+    @media screen and (max-width: 480px) {
+      #footer .inner .copyright li { border-left: 0; display: block; margin: 1em 0 0 0; padding-left: 0; }
+      #footer .inner .copyright li:first-child { margin-top: 0; }
     }
 
-    /* Animations */
-    @keyframes fade-in-up {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Skill badges */
+    .skill-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: solid 1px rgba(255,255,255,0.2);
+      border-radius: 4px;
+      padding: 0.4em 1.2em;
+      font-family: Raleway, Helvetica, sans-serif;
+      font-size: 0.75em;
+      font-weight: 200;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 0.25em;
     }
-    .animate-fade-in-up { animation: fade-in-up 0.6s ease-out forwards; }
+
+    /* Special link */
+    a.special-link {
+      text-decoration: none;
+      border-bottom: 0;
+      display: block;
+      font-family: Raleway, Helvetica, sans-serif;
+      font-size: 0.8em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin: 0 0 2em 0;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    a.special-link:before {
+      transition: background-color 0.2s ease-in-out;
+      border-radius: 100%;
+      border: solid 2px rgba(255,255,255,0.125);
+      content: '\f105';
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      display: inline-block;
+      font-size: 1.25em;
+      height: 2em;
+      line-height: 1.75em;
+      margin-right: 0.85em;
+      text-align: center;
+      text-indent: 0.15em;
+      vertical-align: middle;
+      width: 2em;
+    }
+    a.special-link:hover:before { background-color: rgba(255,255,255,0.025); }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header id="header">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 relative" style="min-height: 120px;">
-      <a href="#" class="logo absolute" style="left:1rem; bottom:25px;">Andres Moraga Triviño</a>
-      <nav class="absolute hidden sm:block" style="right:1rem; bottom:25px;">
-        <a href="#sobre-mi" class="ml-0 sm:ml-12">Sobre mí</a>
-        <a href="#proyectos" class="ml-0 sm:ml-12">Proyectos</a>
-        <a href="#contacto" class="ml-0 sm:ml-12">Contacto</a>
-        <a href="cv.pdf" download class="ml-0 sm:ml-12">CV</a>
+  <!-- Page Wrapper -->
+  <div id="page-wrapper">
+
+    <!-- Header -->
+    <header id="header">
+      <h1><a href="#">Andres Moraga Triviño</a></h1>
+      <nav>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#habilidades">Skills</a>
+        <a href="#contacto">Contacto</a>
+        <a href="cv.pdf" download>CV</a>
       </nav>
-      <!-- Mobile nav toggle would go here, simplified for now -->
-      <nav class="sm:hidden text-center pb-4" style="padding-top: 80px;">
-        <a href="#sobre-mi" class="mx-3">Sobre mí</a>
-        <a href="#proyectos" class="mx-3">Proyectos</a>
-        <a href="#contacto" class="mx-3">Contacto</a>
-        <a href="cv.pdf" download class="mx-3">CV</a>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <!-- Banner / Hero -->
-  <section id="banner">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
-      <div class="flex flex-col sm:flex-row items-center gap-8 sm:gap-12">
-        <div class="sm:w-1/2 text-center sm:text-left animate-fade-in-up">
-          <p class="mb-4">Hola, soy <strong class="font-bold text-[#f6f8f8]">Andres Moraga Triviño</strong></p>
-          <p class="mb-6">Full Stack Developer — creo aplicaciones web rápidas, inclusivas y orientadas al usuario.</p>
-          <a href="#proyectos" class="button-large">Ver proyectos</a>
-        </div>
-        <div class="sm:w-1/2 flex justify-center">
-          <a class="bordered-feature-image max-w-xs w-full">
-            <picture>
-              <source srcset="images/profile.webp" type="image/webp" />
-              <img src="images/profile.png" alt="Andres Moraga Triviño" />
-            </picture>
-          </a>
-        </div>
+    <!-- Banner -->
+    <section id="banner">
+      <div class="inner">
+        <div class="logo"><span class="icon fa-code"></span></div>
+        <h2>Andrés Moraga Triviño</h2>
+        <p>Full Stack Developer — creo aplicaciones web rápidas, inclusivas y orientadas al usuario.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About / Features -->
-  <section id="features">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
-      <div class="text-center mb-10">
-        <h2 class="text-4xl mb-2">Sobre mí</h2>
-        <div class="w-16 h-1 bg-[#ed391b] mx-auto rounded-full"></div>
-      </div>
-      <div class="max-w-3xl mx-auto text-center text-lg leading-relaxed mb-10">
-        <p>Ingeniero en Informática y Contador con experiencia previa en administración y finanzas. Tras años optimizando procesos empresariales, hoy me he reencantado con el desarrollo web, traduciendo esa visión de negocio en la creación de aplicaciones funcionales y eficientes.</p>
-        <p class="mt-4">Me especializo en construir soluciones web ordenadas, alineadas con los objetivos operativos y financieros de cada proyecto. Busco integrarme a un equipo tecnológico donde pueda aportar mi madurez laboral, mi capacidad de organización y seguir creciendo como desarrollador.</p>
-      </div>
-      <h3 class="text-center text-2xl mb-6">Tecnologías</h3>
-      <div class="flex flex-wrap gap-3 justify-center">
-        <span class="skill-badge">Python</span>
-        <span class="skill-badge">Django</span>
-        <span class="skill-badge">GitHub</span>
-        <span class="skill-badge">JavaScript</span>
-        <span class="skill-badge">TypeScript</span>
-        <span class="skill-badge">Docker</span>
-        <span class="skill-badge">OpenCode</span>
-        <span class="skill-badge">Git</span>
-        <span class="skill-badge">PostgreSQL</span>
-      </div>
-    </div>
-  </section>
+    <!-- Wrapper -->
+    <section id="wrapper">
 
-  <!-- Projects / Content -->
-  <section id="content">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-14">
-      <div class="text-center mb-10">
-        <h2 class="text-4xl mb-2">Proyectos</h2>
-        <div class="w-16 h-1 bg-[#ed391b] mx-auto rounded-full"></div>
-        <p class="text-gray-500 mt-3 max-w-lg mx-auto">Proyectos que muestran mi experiencia en distintas tecnologías y enfoques.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- EcoTrack Dash -->
-        <div class="card rounded-xl overflow-hidden">
-          <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-            <img src="images/ecotrack-dash.png" alt="EcoTrack Dash" class="w-full h-full object-cover" onerror="this.style.display='none'" />
-          </div>
-          <div class="mt-4">
-            <h3>EcoTrack Dash</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-4">Dashboard interactivo para medir la huella de carbono empresarial en tiempo real con gráficos dinámicos.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="tag">React</span>
-              <span class="tag">Tailwind CSS</span>
-              <span class="tag">Chart.js</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="https://github.com/Andres-ux2026/ecotrack" target="_blank" rel="noopener noreferrer" class="button flex-1 text-center">Código</a>
-              <a href="https://ecotrack-demo.onrender.com" target="_blank" rel="noopener noreferrer" class="button flex-1 text-center">Demo</a>
-            </div>
+      <!-- About -->
+      <section id="sobre-mi" class="wrapper spotlight style1">
+        <div class="inner">
+          <a class="image"><img src="images/profile.webp" alt="Andres Moraga Triviño" onerror="this.src='images/profile.png'" /></a>
+          <div class="content">
+            <h2 class="major">Sobre mí</h2>
+            <p>Ingeniero en Informática y Contador con experiencia en administración y finanzas. Tras años optimizando procesos empresariales, hoy traduzco esa visión de negocio en aplicaciones funcionales y eficientes. Me especializo en construir soluciones web ordenadas, alineadas con los objetivos operativos y financieros de cada proyecto.</p>
+            <a href="#proyectos" class="special-link">Mis proyectos</a>
           </div>
         </div>
+      </section>
 
-        <!-- Tienda Ecommerce Bootcamp -->
-        <div class="card rounded-xl overflow-hidden">
-          <div class="aspect-video overflow-hidden bg-gray-200">
-            <img src="images/tienda-ecommerce.png" alt="Tienda Ecommerce Bootcamp" class="w-full h-full object-contain" />
-          </div>
-          <div class="mt-4">
-            <h3>Tienda Ecommerce Bootcamp</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-4">Sistema de e-commerce completo desarrollado en Django 6.0 con PostgreSQL y autenticación por roles. Incluye catálogo de productos, carrito de compras, flujo de pedidos y panel de administración.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="tag">Python 3.12+</span>
-              <span class="tag">Django</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Docker Compose</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">Render</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="https://github.com/Andres-ux2026/Leccion-Final-Modulo-8" target="_blank" rel="noopener noreferrer" class="button flex-1 text-center">Código</a>
-              <a href="https://leccion-final-modulo-8.onrender.com/products/" target="_blank" rel="noopener noreferrer" class="button flex-1 text-center">Demo</a>
-            </div>
-          </div>
+      <!-- Projects -->
+      <section id="proyectos" class="wrapper alt style1">
+        <div class="inner">
+          <h2 class="major">Proyectos</h2>
+          <p>Proyectos que muestran mi experiencia en distintas tecnologías y enfoques.</p>
+          <section class="features">
+
+            <!-- EcoTrack Dash -->
+            <article>
+              <a class="image"><img src="images/ecotrack-dash.png" alt="EcoTrack Dash" onerror="this.style.display='none'" /></a>
+              <h3 class="major">EcoTrack Dash</h3>
+              <p>Dashboard interactivo para medir la huella de carbono empresarial en tiempo real con gráficos dinámicos.</p>
+              <div style="margin-bottom:1em;">
+                <span class="skill-badge">React</span>
+                <span class="skill-badge">Tailwind CSS</span>
+                <span class="skill-badge">Chart.js</span>
+              </div>
+              <ul class="actions">
+                <li><a href="https://github.com/Andres-ux2026/ecotrack" target="_blank" rel="noopener noreferrer" class="button small">Código</a></li>
+                <li><a href="https://ecotrack-demo.onrender.com" target="_blank" rel="noopener noreferrer" class="button small">Demo</a></li>
+              </ul>
+            </article>
+
+            <!-- Tienda Ecommerce Bootcamp -->
+            <article>
+              <a class="image"><img src="images/tienda-ecommerce.png" alt="Tienda Ecommerce Bootcamp" onerror="this.style.display='none'" /></a>
+              <h3 class="major">Tienda Ecommerce Bootcamp</h3>
+              <p>Sistema de e-commerce completo desarrollado en Django 6.0 con PostgreSQL y autenticación por roles.</p>
+              <div style="margin-bottom:1em;">
+                <span class="skill-badge">Python 3.12+</span>
+                <span class="skill-badge">Django</span>
+                <span class="skill-badge">Docker</span>
+                <span class="skill-badge">Docker Compose</span>
+                <span class="skill-badge">PostgreSQL</span>
+                <span class="skill-badge">Render</span>
+              </div>
+              <ul class="actions">
+                <li><a href="https://github.com/Andres-ux2026/Leccion-Final-Modulo-8" target="_blank" rel="noopener noreferrer" class="button small">Código</a></li>
+                <li><a href="https://leccion-final-modulo-8.onrender.com/products/" target="_blank" rel="noopener noreferrer" class="button small">Demo</a></li>
+              </ul>
+            </article>
+
+            <!-- CryptoSprout -->
+            <article>
+              <a class="image" style="min-height:10em;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:3em;opacity:0.15;font-weight:700;">{'{ }'}</span>
+              </a>
+              <h3 class="major">CryptoSprout</h3>
+              <p>Simulador educativo de billetera virtual para la gestión de microinversiones en criptoactivos orientada a jóvenes.</p>
+              <div style="margin-bottom:1em;">
+                <span class="skill-badge">TypeScript</span>
+                <span class="skill-badge">Next.js</span>
+                <span class="skill-badge">Sass</span>
+              </div>
+              <ul class="actions">
+                <li><a href="#" class="button small">Código</a></li>
+                <li><a href="#" class="button small">Demo</a></li>
+              </ul>
+            </article>
+
+            <!-- ChefReserve API -->
+            <article>
+              <a class="image" style="min-height:10em;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:3em;opacity:0.15;font-weight:700;">{'{ }'}</span>
+              </a>
+              <h3 class="major">ChefReserve API</h3>
+              <p>API REST para la gestión de reservas de restaurantes con alta concurrencia y sistema de notificaciones automáticas.</p>
+              <div style="margin-bottom:1em;">
+                <span class="skill-badge">Node.js</span>
+                <span class="skill-badge">Express</span>
+                <span class="skill-badge">MongoDB</span>
+              </div>
+              <ul class="actions">
+                <li><a href="#" class="button small">Código</a></li>
+                <li><a href="#" class="button small">Demo</a></li>
+              </ul>
+            </article>
+
+            <!-- AuraFit App -->
+            <article>
+              <a class="image" style="min-height:10em;background:rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:center;">
+                <span style="font-size:3em;opacity:0.15;font-weight:700;">{'{ }'}</span>
+              </a>
+              <h3 class="major">AuraFit App</h3>
+              <p>Landing page minimalista para una aplicación móvil de bienestar mental, meditación guiada y seguimiento del sueño.</p>
+              <div style="margin-bottom:1em;">
+              <span class="skill-badge">Astro</span>
+              <span class="skill-badge">OpenCode</span>
+                <span class="skill-badge">HTML5</span>
+                <span class="skill-badge">CSS Grid</span>
+              </div>
+              <ul class="actions">
+                <li><a href="#" class="button small">Código</a></li>
+                <li><a href="#" class="button small">Demo</a></li>
+              </ul>
+            </article>
+
+          </section>
         </div>
+      </section>
 
-        <!-- CryptoSprout -->
-        <div class="card rounded-xl overflow-hidden">
-          <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-            <div class="text-4xl font-bold text-gray-300 select-none">{'{ }'}</div>
-          </div>
-          <div class="mt-4">
-            <h3>CryptoSprout</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-4">Simulador educativo de billetera virtual para la gestión de microinversiones en criptoactivos orientada a jóvenes.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="tag">TypeScript</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">Sass</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="#" class="button flex-1 text-center">Código</a>
-              <a href="#" class="button flex-1 text-center">Demo</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- ChefReserve API -->
-        <div class="card rounded-xl overflow-hidden">
-          <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-            <div class="text-4xl font-bold text-gray-300 select-none">{'{ }'}</div>
-          </div>
-          <div class="mt-4">
-            <h3>ChefReserve API</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-4">API REST para la gestión de reservas de restaurantes con alta concurrencia y sistema de notificaciones automáticas.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="tag">Node.js</span>
-              <span class="tag">Express</span>
-              <span class="tag">MongoDB</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="#" class="button flex-1 text-center">Código</a>
-              <a href="#" class="button flex-1 text-center">Demo</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- AuraFit App -->
-        <div class="card rounded-xl overflow-hidden">
-          <div class="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-            <div class="text-4xl font-bold text-gray-300 select-none">{'{ }'}</div>
-          </div>
-          <div class="mt-4">
-            <h3>AuraFit App</h3>
-            <p class="text-sm text-gray-600 leading-relaxed mb-4">Landing page minimalista para una aplicación móvil de bienestar mental, meditación guiada y seguimiento del sueño.</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              <span class="tag">Astro</span>
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS Grid</span>
-            </div>
-            <div class="flex gap-3">
-              <a href="#" class="button flex-1 text-center">Código</a>
-              <a href="#" class="button flex-1 text-center">Demo</a>
+      <!-- Skills -->
+      <section id="habilidades" class="wrapper spotlight style2">
+        <div class="inner">
+          <div class="content">
+            <h2 class="major">Habilidades</h2>
+            <p>Tecnologías y herramientas con las que trabajo habitualmente para construir aplicaciones modernas y escalables.</p>
+            <div>
+              <span class="skill-badge">Python</span>
+              <span class="skill-badge">Django</span>
+              <span class="skill-badge">JavaScript</span>
+              <span class="skill-badge">TypeScript</span>
+              <span class="skill-badge">React</span>
+              <span class="skill-badge">Next.js</span>
+              <span class="skill-badge">Node.js</span>
+              <span class="skill-badge">Express</span>
+              <span class="skill-badge">Docker</span>
+              <span class="skill-badge">Git</span>
+              <span class="skill-badge">GitHub</span>
+              <span class="skill-badge">PostgreSQL</span>
+              <span class="skill-badge">MongoDB</span>
+              <span class="skill-badge">Tailwind CSS</span>
+              <span class="skill-badge">Astro</span>
             </div>
           </div>
         </div>
+      </section>
 
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact -->
-  <section id="contacto" class="bg-[#f7f7f7]">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-14">
-      <div class="text-center mb-10">
-        <h2 style="font-family:'Yanone Kaffeesatz',sans-serif;font-size:1.8em;color:#373f42;" class="text-4xl mb-2">Contacto</h2>
-        <div class="w-16 h-1 bg-[#ed391b] mx-auto rounded-full"></div>
-        <p class="text-gray-500 mt-3">¿Tienes un proyecto en mente o quieres conversar? Escríbeme:</p>
-      </div>
+    <!-- Footer -->
+    <section id="footer">
+      <div class="inner">
+        <h2 class="major">Contacto</h2>
+        <p>¿Tienes un proyecto en mente o quieres conversar? Escríbeme y te responderé a la brevedad.</p>
 
-      <div class="card max-w-lg mx-auto">
         <form id="contact-form">
-          <div class="mb-4">
-            <label for="name" class="block text-sm font-medium mb-1" style="color:#373f42;">Nombre</label>
-            <input type="text" id="name" name="name" required class="halcyon-input" placeholder="Tu nombre" />
+          <div class="fields">
+            <div class="field half">
+              <label for="name">Nombre</label>
+              <input type="text" name="name" id="name" placeholder="Tu nombre" />
+            </div>
+            <div class="field half">
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" placeholder="tu@email.com" />
+            </div>
+            <div class="field">
+              <label for="subject">Asunto</label>
+              <input type="text" name="subject" id="subject" placeholder="Asunto del mensaje" />
+            </div>
+            <div class="field">
+              <label for="message">Mensaje</label>
+              <textarea name="message" id="message" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+            </div>
           </div>
-          <div class="mb-4">
-            <label for="email" class="block text-sm font-medium mb-1" style="color:#373f42;">Email</label>
-            <input type="email" id="email" name="email" required class="halcyon-input" placeholder="tu@email.com" />
-          </div>
-          <div class="mb-4">
-            <label for="subject" class="block text-sm font-medium mb-1" style="color:#373f42;">Asunto</label>
-            <input type="text" id="subject" name="subject" required class="halcyon-input" placeholder="Asunto del mensaje" />
-          </div>
-          <div class="mb-4">
-            <label for="message" class="block text-sm font-medium mb-1" style="color:#373f42;">Mensaje</label>
-            <textarea id="message" name="message" rows="5" required class="halcyon-input" placeholder="Escribe tu mensaje aquí..."></textarea>
-          </div>
-          <button type="submit" class="button w-full text-center">Enviar mensaje</button>
-          <p id="form-status" class="mt-4 text-sm font-medium hidden"></p>
+          <ul class="actions">
+            <li><input type="submit" value="Enviar mensaje" /></li>
+          </ul>
+          <p id="form-status" style="display:none;font-family:Raleway,Helvetica,sans-serif;font-size:0.8em;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;"></p>
         </form>
-      </div>
 
-      <div class="text-center mt-10">
-        <p class="text-gray-500 mb-6">O encuéntrame en:</p>
-        <div class="flex justify-center gap-4">
-          <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" class="button" style="padding:0 20px;font-size:1em;">
-            LinkedIn
-          </a>
-          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" class="button" style="padding:0 20px;font-size:1em;">
-            GitHub
-          </a>
-          <a href="mailto:moraga_2006@hotmail.com" class="button" style="padding:0 20px;font-size:1em;">
-            Email
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+        <ul class="contact">
+          <li class="icon solid fa-envelope"><a href="mailto:moraga_2006@hotmail.com">moraga_2006@hotmail.com</a></li>
+          <li class="icon brands fa-linkedin-in"><a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li class="icon brands fa-github"><a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
 
-  <!-- Footer -->
-  <footer id="footer" class="py-10 px-4 border-t border-gray-300">
-    <div class="max-w-5xl mx-auto text-center text-sm">
-      <p>&copy; 2026 Andres Moraga Triviño. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+        <ul class="copyright">
+          <li>&copy; 2026 Andres Moraga Triviño. Todos los derechos reservados.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
 
   <!-- EmailJS -->
   <script>
@@ -511,11 +788,11 @@
     document.getElementById('contact-form').addEventListener('submit', function (e) {
       e.preventDefault()
 
-      const btn = this.querySelector('button[type="submit"]')
+      const btn = this.querySelector('button, input[type="submit"]')
       const status = document.getElementById('form-status')
       btn.disabled = true
-      btn.textContent = 'Enviando...'
-      status.className = 'mt-4 text-sm font-medium hidden'
+      btn.value = 'Enviando...'
+      status.style.display = 'none'
 
       emailjs.send('service_lidnjvc', 'template_d3yp8ac', {
         name: document.getElementById('name').value,
@@ -525,18 +802,21 @@
       })
         .then(() => {
           status.textContent = '¡Mensaje enviado con éxito! Te responderé pronto.'
-          status.className = 'mt-4 text-sm font-medium text-[#ED391B]'
+          status.style.color = '#4caf50'
+          status.style.display = 'block'
           this.reset()
         })
         .catch(() => {
           status.textContent = 'Hubo un error al enviar el mensaje. Intenta de nuevo.'
-          status.className = 'mt-4 text-sm font-medium text-red-600'
+          status.style.color = '#f44336'
+          status.style.display = 'block'
         })
         .finally(() => {
           btn.disabled = false
-          btn.textContent = 'Enviar mensaje'
+          btn.value = 'Enviar mensaje'
         })
     })
   </script>
+
 </body>
 </html>
